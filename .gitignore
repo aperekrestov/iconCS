@@ -1,6 +1,7 @@
 # dependencies
 /electron-app/node_modules
 /iconcs-app/node_modules
+/react-app/node_modules
 
 
 # testing
