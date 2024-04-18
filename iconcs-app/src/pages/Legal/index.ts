@@ -1,0 +1,1 @@
+export {LazyLegal as Legal} from './Legal.laze'

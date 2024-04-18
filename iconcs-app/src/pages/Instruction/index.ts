@@ -1,0 +1,1 @@
+export {LazyInstruction as Instruction} from './Instruction.laze'

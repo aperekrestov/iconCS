@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap')
+
+$color-1: #FCFCFC;
+$color-2: #ED1C24;
+$color-3: #C30438;
+$color-4: #F4F7F6;
+$color-5: #E6EAEA;
+$color-6: #202121;
+$color-7: #818285;
+$color-8: #FFFFFF;
+$color-9: #C3C7C6;
+$color-10: #0C121C;
+$color-11: #4FC4B6;
+$color-12: #C8DDEA;
+$color-13: #D6F0BF;
+$color-14: #F5FAFC;
+
+$color-hover-1: rgba(12, 18, 28, 0.04);
+
+$size-0: 4px;
+$size-1: 8px;
+$size-2: 16px;
+$size-3: 24px;
+$size-4: 32px;
+$size-5: 48px;
+$size-6: 64px;
+$size-7: 96px;
+$size-8: 128px;
+$size-9: 256px;
+$size-10: 512px;
+
+//? экран больше или равен следующим значениям $breakpoint
+$breakpoint-u: 320px;
+$breakpoint-s: 576px;
+$breakpoint-m: 768px;
+$breakpoint-l: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+$breakpoint-xxxl: 1920px;
+
+$content-width-u: calc($breakpoint-u - $size-3)*2;
+$content-width-s: calc($breakpoint-s - $size-3)*2;
+$content-width-m: calc($breakpoint-m - $size-3)*2;
+$content-width-l: calc($breakpoint-l - $size-5)*2;
+$content-width-xl: calc($breakpoint-xl - $size-5)*2;
+$content-width-xxl: calc($breakpoint-xxl - $size-5)*2;
+
+$spacing-u: $size-0;
+$spacing-s: $size-1;
+$spacing-m: $size-2;
+$spacing-l: $size-3;
+$spacing-xl: $size-4;
+
+$transition-regular: all .4s ease;
+$transition-fast: all .2s ease;
+$time-slow: 1s;
+$time-regular: .4s;
+$time-fast: .2s;
+
+* {
+	margin: 0;
+	padding: 0;
+	scrollbar-color: $color-3 $color-10;
+	scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+	width: $size-1;
+	height: $size-1;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: $color-3;
+}
+
+::-webkit-scrollbar-track {
+	background-color: $color-10;
+}
+
+::-webkit-scrollbar-corner {
+	background-color: $color-3;
+}
+
+::selection {
+	background: $color-3;
+	color: $color-4;
+}
+
+::-moz-selection {
+	background: $color-3;
+	color: $color-4;
+}
+
+img::selection {
+	background: none;
+}
+
+img::-moz-selection {
+	background: none;
+}
+
+img {
+	text-align: center;
+	font-size: 11px;
+	line-height: 11px;
+	letter-spacing: 1.4px;
+	text-transform: uppercase;
+}
+
+a {
+	display: block;
+	color: $color-10;
+	text-decoration: none;
+	position: relative;
+}
+
+html,
+body {
+	height: 100%;
+	// background-color: $color-10;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: $size-2;
+	font-weight: 400;
+}
+
+h1 {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: $size-5;
+	font-weight: 300;
+	box-sizing: border-box;
+}
+
+h2 {
+	font-size: $size-4;
+	padding-bottom: $spacing-l;
+	box-sizing: border-box;
+}
+
+h3 {
+	font-size: 18px;
+	font-weight: 400;
+	padding-bottom: $spacing-s;
+	text-transform: uppercase;
+	line-height: 160%;
+}
+
+p,
+dl {
+	line-height: 175%;
+	margin-bottom: $spacing-xl;
+}
+
+dd {
+	margin-left: $spacing-xl;
+	display: list-item;
+	list-style-type: disc;
+}
+
+input {
+	font-size: $size-2;
+	background-color: unset;
+}
+
+.content_height_auto {
+	flex: 1 1 auto;
+	//! чтобы работало нужно задать
+	//! контейнеру мин. высоту 100%/100vh, flex, flex-direction: column;
+	//! body и html высоту 100%
+}
+
+.grey_page {
+	background-color: $color-5;
+}
+
+.width_limiter {
+	width: 100%;
+	max-width: $breakpoint-xxl;
+	margin: 0 auto;
+}
+
+.content_indent {
+	padding-left: $spacing-xl;
+	padding-right: $spacing-xl;
+}
+
+.content_width_middle {
+	margin: 0 auto;
+	width: $breakpoint-m;
+
+}
+
+.content_width_large {
+	margin: 0 auto;
+	max-width: $breakpoint-xxxl;
+	opacity: 0;
+}
+
+
+
+
+.icon_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $color-5;
+	width: calc(100% / 5 - $spacing-xl);
+	margin: calc($spacing-xl/2);
+}
+
+.icon_container:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.icon_container__image {
+	width: $size-8;
+	height: $size-8;
+}
+
+[data-title] {
+	font-size: 11px;
+	letter-spacing: 1.4px;
+	text-transform: uppercase;
+	color: $color-7;
+	text-align: center;
+}
+
+[data-title]:hover:after {
+	content: attr(data-title);
+	transition: $transition-fast;
+	pointer-events: none;
+	opacity: 1;
+}
+
+[data-title]:not(:hover):after {
+	content: attr(data-title);
+	transition: $transition-regular;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.icon_container a[data-title]:hover:after {
+	left: 0;
+	top: calc(100% + 16px);
+	width: 100%;
+	position: absolute;
+}
+
+.icon_container a[data-title]:not(:hover):after {
+	left: 0;
+	top: calc(100% + 16px);
+	width: 100%;
+	position: absolute;
+}
+
+
+
+
+
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@media (min-width: 1920px) {
+
+	//? больше 1920px
+	.bg_page {
+		background-position: left calc(50% - 960px + 400px) top $size-7;
+	}
+}
+
+@media (max-width: 1400px) {
+
+	//? меньше 1400px
+	.icon_container__image {
+		width: $size-7;
+		height: $size-7;
+	}
+}
+
+@media (max-width: 1200px) {
+
+	//? меньше 1200px
+	.icon_container__image {
+		width: $size-6;
+		height: $size-6;
+	}
+}
+
+@media (max-width: 992px) {
+
+	//? меньше 992px
+	.icon_container {
+		width: calc((100%/4) - $spacing-xl);
+	}
+
+	.content_width_middle {
+		width: unset;
+		padding-left: $spacing-xl;
+		padding-right: $spacing-xl;
+	}
+
+	.bg_page {
+		background-size: 600px;
+	}
+}
+
+@media (max-width: 768px) {
+
+	//? меньше 768px
+	.icon_container {
+		width: calc((100%/3) - $spacing-xl);
+	}
+}
+
+@media (max-width: 576px) {
+
+	//? меньше 576px
+	h1 {
+		font-size: $size-4;
+	}
+
+	h2 {
+		font-size: $size-3;
+	}
+
+	.content_width_middle {
+		text-align: center;
+	}
+
+	.content_indent {
+		padding-left: $spacing-m;
+		padding-right: $spacing-m;
+	}
+
+	.list__container {
+		padding: 0 0;
+	}
+
+	.icon_container {
+		width: calc((100%/2) - $spacing-xl);
+	}
+
+	.bg_page {
+		background-size: 400px;
+		background-position: center $size-7;
+	}
+}
+
+@media (max-width: 320px) {
+	//? меньше 320px
+}
