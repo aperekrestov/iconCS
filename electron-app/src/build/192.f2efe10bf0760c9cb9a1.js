@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkiconcs_app=self.webpackChunkiconcs_app||[]).push([[192],{192:(n,c,e)=>{e.r(c),e.d(c,{default:()=>t}),e(540);var s=e(848);const t=function(){return(0,s.jsx)(s.Fragment,{children:(0,s.jsx)("button",{children:"Test"})})}}}]);
