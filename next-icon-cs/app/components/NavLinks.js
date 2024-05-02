@@ -3,12 +3,14 @@
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 
+import variables from '@/app/styles/variables.module.scss'
+
 export function NavLinks() {
 	const pathname = usePathname()
 
 	return (
 		<nav>
-			<Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
+			<Link style={{ color: variables.primaryColor }} className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
 				Главная
 			</Link>
 
