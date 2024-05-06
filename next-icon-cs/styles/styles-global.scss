@@ -72,6 +72,26 @@ input {
 	background-color: unset;
 }
 
+// .width_limiter {
+// 	width: 100%;
+// 	max-width: $breakpoint-xxl;
+// 	margin: 0 auto;
+// }
+
+.content_width_large {
+	margin: 0 auto;
+	width: 100%;
+	max-width: $breakpoint-xxl;
+	padding-left: $spacing-xl;
+	padding-right: $spacing-xl;
+	box-sizing: border-box;
+}
+
+// .content_indent {
+// 	padding-left: $spacing-xl;
+// 	padding-right: $spacing-xl;
+// }
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
 	// .card:hover {

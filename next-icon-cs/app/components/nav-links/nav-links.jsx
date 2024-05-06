@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from "next/navigation"
-import Link from "next/link"
+import Link from 'next/link'
 import styles from './nav-links.module.scss'
 
 export default function NavLinks() {

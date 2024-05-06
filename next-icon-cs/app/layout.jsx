@@ -1,5 +1,7 @@
 import { Ubuntu } from "next/font/google"
-import NavLinks from '@/app/components/nav-links/nav-links'
+import Header from '@/app/components/header/header'
+
+//? импортирнруем глобальные стили в корневой шаблон
 import stylesGlobal from '@/styles/styles-global.scss'
 
 
@@ -19,7 +21,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<NavLinks />
+				<Header />
 				{children}
 			</body>
 		</html>
