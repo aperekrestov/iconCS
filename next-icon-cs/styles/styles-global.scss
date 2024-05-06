@@ -1,0 +1,109 @@
+//? Основной шрифт (Ubuntu) определяется в корневом Layout.jsx 
+@import '@/styles/variables.module.scss';
+
+* {
+	margin: 0;
+	padding: 0;
+	scrollbar-color: $color-3 $color-10;
+	scrollbar-width: thin;
+}
+
+img::selection {
+	background: none;
+}
+
+img {
+	text-align: center;
+	font-size: 11px;
+	line-height: 11px;
+	letter-spacing: 1.4px;
+	text-transform: uppercase;
+}
+
+a {
+	display: block;
+	color: $color-10;
+	text-decoration: none;
+	position: relative;
+}
+
+html,
+body {
+	height: 100%;
+	// background-color: $color-10;
+	font-size: $size-2;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: $size-5;
+	font-weight: 300;
+	box-sizing: border-box;
+}
+
+h2 {
+	font-size: $size-4;
+	padding-bottom: $spacing-l;
+	box-sizing: border-box;
+	word-wrap: break-word;
+}
+
+h3 {
+	font-size: 18px;
+	padding-bottom: $spacing-s;
+	text-transform: uppercase;
+	line-height: 160%;
+}
+
+p,
+dl {
+	line-height: 175%;
+	margin-bottom: $spacing-xl;
+}
+
+dd {
+	margin-left: $spacing-xl;
+	display: list-item;
+	list-style-type: disc;
+}
+
+input {
+	font-size: $size-2;
+	background-color: unset;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+	// .card:hover {
+	// 	background: rgba(var(--card-rgb), 0.1);
+	// 	border: 1px solid rgba(var(--card-border-rgb), 0.15);
+	// }
+
+	// .card:hover span {
+	// 	transform: translateX(4px);
+	// }
+}
+
+@media (prefers-reduced-motion) {
+	// .card:hover span {
+	// 	transform: none;
+	// }
+}
+
+/* Mobile */
+@media (max-width: 700px) {}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {}
+
+@media (prefers-color-scheme: dark) {}
+
+@keyframes rotate {
+	// from {
+	// 	transform: rotate(360deg);
+	// }
+
+	// to {
+	// 	transform: rotate(0deg);
+	// }
+}

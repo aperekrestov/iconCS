@@ -1,0 +1,57 @@
+$color-1: #FCFCFC;
+$color-2: #ED1C24;
+$color-3: #C30438;
+$color-4: #F4F7F6;
+$color-5: #E6EAEA;
+$color-6: #202121;
+$color-7: #818285;
+$color-8: #FFFFFF;
+$color-9: #C3C7C6;
+$color-10: #0C121C;
+$color-11: #4FC4B6;
+$color-12: #C8DDEA;
+$color-13: #D6F0BF;
+$color-14: #F5FAFC;
+
+$color-hover-1: rgba(12, 18, 28, 0.04);
+
+$size-0: 4px;
+$size-1: 8px;
+$size-2: 16px;
+$size-3: 24px;
+$size-4: 32px;
+$size-5: 48px;
+$size-6: 64px;
+$size-7: 96px;
+$size-8: 128px;
+$size-9: 256px;
+$size-10: 512px;
+
+//? экран больше или равен следующим значениям $breakpoint
+$breakpoint-u: 320px;
+$breakpoint-s: 576px;
+$breakpoint-m: 768px;
+$breakpoint-l: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+$breakpoint-xxxl: 1920px;
+
+$content-width-u: calc($breakpoint-u - $size-3)*2;
+$content-width-s: calc($breakpoint-s - $size-3)*2;
+$content-width-m: calc($breakpoint-m - $size-3)*2;
+$content-width-l: calc($breakpoint-l - $size-5)*2;
+$content-width-xl: calc($breakpoint-xl - $size-5)*2;
+$content-width-xxl: calc($breakpoint-xxl - $size-5)*2;
+
+$spacing-u: $size-0;
+$spacing-s: $size-1;
+$spacing-m: $size-2;
+$spacing-l: $size-3;
+$spacing-xl: $size-4;
+
+$transition-regular: all .4s ease;
+$transition-fast: all .2s ease;
+$time-slow: 1s;
+$time-regular: .4s;
+$time-fast: .2s;
+

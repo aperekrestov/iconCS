@@ -1,0 +1,41 @@
+@import '@/styles/variables.module.scss';
+
+
+.nav_btn_container {
+	display: flex;
+	justify-content: space-between;
+	list-style-type: none;
+	width: $size-8;
+	order: 3;
+	background-color: greenyellow;
+	//! ширина должна быть равной ширине логотипа
+}
+.nav_btn {
+	display: block;
+	width: $size-2;
+	height: $size-2;
+}
+.nav_btn__1 {
+	background-image: url(../../../public/img/icon-0375-s.svg);
+	// background-image: url(@/public/img/icon-0375-s.svg);
+	/* margin-right: var(--spacing-m); */
+}
+.nav_btn__2 {
+	background-image: url(../../../public/img/icon-0172-s.svg);
+}
+.nav_btn__3 {
+	background-image: url(../../../public/img/icon-0193-s.svg);
+}
+.nav_btn__4 {
+	background-image: url(../../../public/img/icon-0378-s.svg);
+}
+
+// .test {
+// 	color: $color-2;
+// 	// color: green;
+// }
+
+// .active {
+// 	color: $color-7;
+// 	// font-size: 28px;
+// }
