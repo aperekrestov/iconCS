@@ -72,6 +72,21 @@ input {
 	background-color: unset;
 }
 
+// input[type=search] {
+//todo надо ли?
+//     -webkit-appearance: textfield;
+// }
+
+[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    height: $size-1;
+    width: $size-1;
+    background-image: url(../public/img/icon-0078-u.svg);
+    transition: $transition-regular;
+    cursor: pointer;
+}
+
 // .width_limiter {
 // 	width: 100%;
 // 	max-width: $breakpoint-xxl;

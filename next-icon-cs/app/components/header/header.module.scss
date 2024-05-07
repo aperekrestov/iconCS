@@ -27,3 +27,10 @@
 	width: $size-8;
 	background-color: gray;
 }
+
+.center_part {
+	max-width: $breakpoint-s;
+	width: 100%;
+	height: $size-5;
+	background-color: blue;
+}
