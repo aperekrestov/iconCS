@@ -2,6 +2,7 @@
 import Logo from '@/app/components/logo/logo'
 import NavLinks from '@/app/components/nav-links/nav-links'
 import Search from '@/app/components/search/search'
+import { Suspense } from 'react'
 import styles from './header.module.scss'
 
 export default function Header() {
@@ -12,7 +13,9 @@ export default function Header() {
 					<Logo />
 				</div>
 				<div className={styles.center_part}>
-					<Search />
+					<Suspense fallback={<>...</>}>
+						<Search />
+					</Suspense>
 				</div>
 				<div className={styles.right_side}>
 					<NavLinks />

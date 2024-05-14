@@ -33,8 +33,7 @@
 	outline: 2px solid $color-4;
 }
 
-.search:focus-within {
-	// todo не рабоиаеи
+.searchForm:focus-within {
 	outline: 2px solid $color-3;
 }
 
@@ -43,5 +42,27 @@
 	top: 100%;
 	width: inherit;
 	max-width: inherit;
+	border: 1px solid $color-10;
+	box-sizing: border-box;
 	// max-height: calc($size-5 * 6);
+	
+	li {
+		display: flex;
+		align-items: center;
+		background-color: $color-4;
+		height: $size-5;
+		padding: 0 $spacing-m;
+		cursor: pointer;
+		user-select: none;
+	}
+	
+	li:focus {
+		outline: none;
+		background-color: $color-5;
+		border-left: $size-0 solid $color-3;
+	}
+	
+	li:hover {
+		background-color: $color-5;
+	}
 }

@@ -76,48 +76,8 @@ input {
 	padding: 0 $spacing-m;
 }
 
-select {
-	overflow: hidden;
-	font-size: $size-2;
-	border-radius: 0;
-	box-sizing: border-box;
-	border: 1px solid $color-10;
-	background-color: $color-4;
-
-	&:focus {
-		outline: unset;
-	}
-}
-
-
-option {
-	user-select: none;
-	color: $color-7;
-	display: flex;
-	align-items: center;
-	height: $size-5;
-	cursor: pointer;
-	padding: 0 $spacing-m;
-
-	&:focus {
-		// color: $color-10;
-		// outline: none;
-		background-color: unset;
-		// border-left: $size-0 solid $color-3;
-	}
-
-	&:hover {
-		background-color: $color-5;
-	}
-
-	&:checked {
-		background-color: $color-3;
-	}
-
-}
-
 // input[type=search] {
-//todo надо ли?
+// // todo надо ли?
 //     -webkit-appearance: textfield;
 // }
 
