@@ -1,13 +1,13 @@
 'use client'
-import { Suspense, useEffect, useRef, useState } from 'react'
-import { getData, getTest } from '@/app/utils/get-data'
+import { useEffect, useRef, useState } from 'react'
+import { getIconsApprovedData, getUniqueTags } from '@/app/utils/get-data'
 import styles from './search.module.scss'
-
-
 
 export default function Search({ searchText = '' }) {
 	const userQuery = useRef(null)
 	const coincidenceList = useRef(null)
+	const [iconsApprovedData, setIconsApprovedData] = useState([])
+	const [iconsUniqueTags, setIconsUniqueTags] = useState([])
 
 	let coincidenceTabIndex = -1
 	let coincidence = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
@@ -35,17 +35,12 @@ export default function Search({ searchText = '' }) {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			try {
-				const iconsId = await getData()
-				console.log(iconsId);
-				// const result = await getData(perPage, page);
-				// setData(result);
-			} catch (error) {
-				console.error('Error fetching data:', error);
-			}
-		};
+			// const result = await getIconsApprovedData()
+			setIconsApprovedData(await getIconsApprovedData())
+			setIconsUniqueTags(await getUniqueTags())
+		}
 
-		fetchData();
+		fetchData()
 	}, [])
 
 	return (
@@ -62,19 +57,39 @@ export default function Search({ searchText = '' }) {
 			/>
 			<button className={styles.searchForm__btn} type='submit'></button>
 
-
 			<ul className={styles.searchOptions} ref={coincidenceList}>
-				{coincidence.map((item, index) =>
-					<li
+				{iconsApprovedData.map((item) => {
+					return (
+						<li
+							// onClick={clickCoincidence}
+							onKeyDown={searchKeyDown}
+							tabIndex={coincidenceTabIndex}
+							key={item.id}
+						>
+							{item.id}
+						</li>
+
+					)
+				})}
+			</ul>
+
+
+			{/* <ul className={styles.searchOptions} ref={coincidenceList}>
+				{data.map((item, index) => {
+					return(
+
+						<li
 						// onClick={clickCoincidence}
 						onKeyDown={searchKeyDown}
-						key={index}
-						tabIndex={index}
-					>
+						key={item.id}
+						// tabIndex={index}
+						>
 						{item}
 					</li>
+						)
+				}
 				)}
-			</ul>
+			</ul> */}
 
 
 			{/* <select
