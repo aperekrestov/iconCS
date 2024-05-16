@@ -1,42 +1,82 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { getIconsApprovedData, getUniqueTags } from '@/app/utils/get-data'
 import styles from './search.module.scss'
 
 export default function Search({ searchText = '' }) {
-	const userQuery = useRef(null)
-	const coincidenceList = useRef(null)
 	const [iconsApprovedData, setIconsApprovedData] = useState([])
 	const [iconsUniqueTags, setIconsUniqueTags] = useState([])
+	const [coincidence, setCoincidence] = useState([])
+	const router = useRouter()
+	const coincidenceList = useRef(null)
+	const userQuery = useRef(null)
 
 	let coincidenceTabIndex = -1
-	let coincidence = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+	let inputValue = ''
+
+	const handleFocuseout = (e) => {
+		if (!e.currentTarget.contains(e.relatedTarget)) {
+			setCoincidence([])
+		}
+	}
+
+	const clickCoincidence = (e) => {
+		userQuery.current.value = e.target.textContent
+		goToUserQueryPage()
+	}
+
+	const goToUserQueryPage = () => {
+		window.scrollTo(0, 0)
+
+		if (userQuery.current.value !== '') {
+			setCoincidence([])
+			router.replace(`/search?icons=${userQuery.current.value}`, { scroll: true })
+			// navigate('/search=' + userQuery.current.value, { 
+			// 	state: { query: userQuery.current.value } 
+			// })
+		}
+	}
+
+	const handleChange = (e) => {
+		inputValue = e.target.value
+		setCoincidence(getOptions)
+		if (inputValue === '') {
+			setCoincidence([])
+		}
+	}
+
+	function getOptions() {
+		let regex = new RegExp('^' + inputValue, 'gi')
+		//? задаем список подсказок из массива ТЭГОВ
+		let coincidencesFullArray = iconsUniqueTags.filter(item => { return item.match(regex) })
+		//todo задаем списко подсказок из ID значений, если по ТЭГАМ нет совпадений
+		// if (coincidencesFullArray.length === 0) {
+		// 	coincidencesFullArray = value.listID.filter(item => { return item.match(regex) })
+		// }
+		return coincidencesFullArray.slice(0, 5)
+	}
 
 	const searchKeyDown = (e) => {
 		if (e.keyCode === 40) {
 			e.preventDefault()
-			console.log('вниз ' + coincidenceList.current.children.length);
 			coincidenceTabIndex === coincidenceList.current.children.length - 1 ? coincidenceTabIndex = 0 : coincidenceTabIndex++
 			coincidenceList.current.children[coincidenceTabIndex].focus()
 			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
 		}
 		if (e.keyCode === 38) {
 			e.preventDefault()
-			console.log('вверх');
 			coincidenceTabIndex <= 0 ? coincidenceTabIndex = coincidenceList.current.children.length - 1 : coincidenceTabIndex--
 			coincidenceList.current.children[coincidenceTabIndex].focus()
 			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
 		}
 		if (e.keyCode === 13) {
-			console.log('ентер');
-			// goToUserQueryPage()
+			goToUserQueryPage()
 		}
 	}
 
 	useEffect(() => {
 		const fetchData = async () => {
-			// const result = await getIconsApprovedData()
-			setIconsApprovedData(await getIconsApprovedData())
 			setIconsUniqueTags(await getUniqueTags())
 		}
 
@@ -44,7 +84,13 @@ export default function Search({ searchText = '' }) {
 	}, [])
 
 	return (
-		<form className={styles.searchForm} autoComplete='off'>
+		<form
+			onChange={handleChange} 
+			// onSubmit={handleSubmit} 
+			onBlur={handleFocuseout}
+			className={styles.searchForm}
+			autoComplete='off'
+		>
 			<input
 				autoComplete='off'
 				type='search'
@@ -58,20 +104,22 @@ export default function Search({ searchText = '' }) {
 			<button className={styles.searchForm__btn} type='submit'></button>
 
 			<ul className={styles.searchOptions} ref={coincidenceList}>
-				{iconsApprovedData.map((item) => {
+				{coincidence.map((item, index) => {
 					return (
 						<li
-							// onClick={clickCoincidence}
+							onClick={clickCoincidence}
 							onKeyDown={searchKeyDown}
-							tabIndex={coincidenceTabIndex}
-							key={item.id}
+							// tabIndex={coincidenceTabIndex}
+							tabIndex={index}
+							key={index}
 						>
-							{item.id}
+							{item}
 						</li>
 
 					)
 				})}
 			</ul>
+
 
 
 			{/* <ul className={styles.searchOptions} ref={coincidenceList}>
