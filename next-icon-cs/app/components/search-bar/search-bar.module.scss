@@ -10,6 +10,7 @@
 	outline: 2px solid $color-7;
 	outline-offset: -2px;
 	order: 2;
+	color: $color-10;
 
 	&__input {
 		width: 100%;
@@ -18,8 +19,8 @@
 
 	&__btn {
 		display: flex;
-		width: calc($size-5 - 4px);
-		height: calc($size-5 - 4px);
+		aspect-ratio: 1 / 1;
+		height: inherit;
 		margin-right: 2px;
 		background-image: url(../../../public/img/icon-0127-s.svg);
 		background-repeat: no-repeat;
@@ -29,13 +30,27 @@
 	}
 }
 
-.searchForm:hover {
-	outline: 2px solid $color-4;
-}
+// .icon_container a[data-title]:hover:after {
+// 	left: 0;
+// 	top: calc(100% + 16px);
+// 	width: 100%;
+// 	position: absolute;
+// }
+// .icon_container a[data-title]:not(:hover):after {
+// 	left: 0;
+// 	top: calc(100% + 16px);
+// 	width: 100%;
+// 	position: absolute;
+// }
 
-.searchForm:focus-within {
-	outline: 2px solid $color-3;
-}
+
+// .searchForm:hover {
+// 	outline: 2px solid $color-4;
+// }
+
+// .searchForm:focus-within {
+// 	outline: 2px solid $color-3;
+// }
 
 .searchOptions {
 	position: absolute;

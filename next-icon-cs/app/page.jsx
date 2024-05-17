@@ -1,7 +1,7 @@
+import Main from '@/app/components/main/main'
+
 export default function Page() {
-  return (
-    <>
-		<h1>Главная</h1>
-	</>
-  );
+	return (
+		<Main />
+	);
 }

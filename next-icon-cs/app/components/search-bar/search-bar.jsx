@@ -2,9 +2,9 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { getIconsApprovedData, getUniqueTags } from '@/app/utils/get-data'
-import styles from './search.module.scss'
+import styles from './search-bar.module.scss'
 
-export default function Search({ searchText = '' }) {
+export default function SearchBar({ searchText = ''}) {
 	const [iconsApprovedData, setIconsApprovedData] = useState([])
 	const [iconsUniqueTags, setIconsUniqueTags] = useState([])
 	const [coincidence, setCoincidence] = useState([])
@@ -32,9 +32,6 @@ export default function Search({ searchText = '' }) {
 		if (userQuery.current.value !== '') {
 			setCoincidence([])
 			router.replace(`/search?icons=${userQuery.current.value}`, { scroll: true })
-			// navigate('/search=' + userQuery.current.value, { 
-			// 	state: { query: userQuery.current.value } 
-			// })
 		}
 	}
 
@@ -95,7 +92,7 @@ export default function Search({ searchText = '' }) {
 				autoComplete='off'
 				type='search'
 				name='search'
-				placeholder='Поиск графических иконок'
+				placeholder='Начать поиск'
 				defaultValue={searchText}
 				className={styles.searchForm__input}
 				ref={userQuery}

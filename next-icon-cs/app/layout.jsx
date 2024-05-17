@@ -3,12 +3,13 @@ import Header from '@/app/components/header/header'
 
 //? импортирнруем глобальные стили в корневой шаблон
 import stylesGlobal from '@/styles/styles-global.scss'
+// import styles from './nav-links.module.scss'
 
 
-const inter = Ubuntu({ 
+const inter = Ubuntu({
 	weight: ['300', '400', '700'],
 	style: ['normal', 'italic'],
-	subsets: ['cyrillic','latin'],
+	subsets: ['cyrillic', 'latin'],
 	display: 'swap',
 });
 
@@ -21,8 +22,10 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<Header />
-				{children}
+				<div className={'wrapper_main'}>
+					<Header searchBarHidden={true}/>
+					{children}
+				</div>
 			</body>
 		</html>
 	);

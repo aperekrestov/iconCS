@@ -19,18 +19,18 @@
 .left_side {
 	//! ширина должна быть равной ширине right_side
 	width: $size-8;
-	background-color: gray;
+	// background-color: gray;
 }
 
 .right_side {
 	//! ширина должна быть равной ширине left_side
 	width: $size-8;
-	background-color: gray;
+	// background-color: gray;
 }
 
 .center_part {
 	max-width: $breakpoint-s;
 	width: 100%;
 	height: $size-5;
-	background-color: blue;
+	// background-color: gray;
 }
