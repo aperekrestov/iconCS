@@ -1,0 +1,13 @@
+@import '@/styles/variables.module.scss';
+
+.wrapper {
+	min-height: $size-5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.copyright {
+	color: $color-1;
+	text-align: center;
+}

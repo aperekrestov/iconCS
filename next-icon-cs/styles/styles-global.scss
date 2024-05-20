@@ -21,7 +21,7 @@ img {
 }
 
 a {
-	display: block;
+	// display: block;
 	color: $color-10;
 	text-decoration: none;
 	position: relative;
@@ -31,10 +31,15 @@ html,
 body {
 	height: 100%;
 	scrollbar-gutter: stable both-edges;
-	// background-color: $color-10;
+	background-color: $color-10;
 	font-size: $size-2;
 	font-weight: 400;
 	color: $color-10;
+}
+
+article, section {
+	background-color: $color-1;
+	flex-grow: 1;
 }
 
 h1 {

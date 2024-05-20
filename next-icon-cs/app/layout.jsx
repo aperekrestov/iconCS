@@ -1,10 +1,9 @@
 import { Ubuntu } from "next/font/google"
 import Header from '@/app/components/header/header'
+import Footer from '@/app/components/footer/Footer'
 
 //? импортирнруем глобальные стили в корневой шаблон
 import stylesGlobal from '@/styles/styles-global.scss'
-// import styles from './nav-links.module.scss'
-
 
 const inter = Ubuntu({
 	weight: ['300', '400', '700'],
@@ -23,8 +22,9 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body className={inter.className}>
 				<div className={'wrapper_main'}>
-					<Header searchBarHidden={true}/>
+					<Header />
 					{children}
+					<Footer />
 				</div>
 			</body>
 		</html>

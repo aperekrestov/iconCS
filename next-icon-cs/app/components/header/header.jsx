@@ -1,10 +1,13 @@
+'use client'
 
+import { usePathname } from 'next/navigation'
 import Logo from '@/app/components/logo/logo'
 import NavLinks from '@/app/components/nav-links/nav-links'
 import SearchBar from '@/app/components/search-bar/search-bar'
 import styles from './header.module.scss'
 
-export default function Header({ searchBarHidden }) {
+export default function Header() {
+	const pathname = usePathname()
 
 	return (
 		<header className={styles.header_section}>
@@ -12,11 +15,14 @@ export default function Header({ searchBarHidden }) {
 				<div className={styles.left_side}>
 					<Logo />
 				</div>
-				{!searchBarHidden &&
+
+				{
+					pathname !== '/' &&					
 					<div className={styles.center_part}>
-						<Search />
+						<SearchBar />
 					</div>
 				}
+
 				<div className={styles.right_side}>
 					<NavLinks />
 				</div>

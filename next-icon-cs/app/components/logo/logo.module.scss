@@ -1,9 +1,12 @@
 @import '@/styles/variables.module.scss';
 
 .logo {
-	//! ширина должна быть равной ширине блоку иконок справа
-	width: $size-7;
-	height: $size-2;
-	background-image: url('../../../public/img/logo-light.svg');
 	pointer-events: painted;
+	width: $size-8;
+	height: $size-4;
+	// width: $size-7;
+	background-image: url('../../../public/img/logo-light.svg');
+	background-size: 100% auto;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
