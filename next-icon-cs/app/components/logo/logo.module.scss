@@ -1,6 +1,7 @@
 @import '@/styles/variables.module.scss';
 
 .logo {
+	display: block;
 	pointer-events: painted;
 	width: $size-8;
 	height: $size-4;

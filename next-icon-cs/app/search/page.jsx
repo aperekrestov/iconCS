@@ -1,22 +1,24 @@
-import { getIconsApprovedData } from '@/app/utils/get-data'
+'use client'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { getIconsFilteredData} from '@/app/utils/get-data'
 
-export default async function Search() {
-	const iconsApproved = await getIconsApprovedData()
+export default function Search() {
+	const searchParams = useSearchParams()
+	const [iconsFilteredData, setIconsFilteredData] = useState([])
+
+	useEffect(() => {
+		const userQuery = searchParams.get('icons')
+		const fetchData = async () => {
+			setIconsFilteredData(await getIconsFilteredData(userQuery))
+		}
+		fetchData()
+	}, [])
 
 	return (
 		<section>
-		
 			<h1>Поиск</h1>
-			<ul>
-				{iconsApproved.map((item) => {
-					return (
-						<li key={item.id}>
-							{item.id}
-						</li>
-
-					)
-				})}
-			</ul>
+			<h2>{searchParams.get('icons')}</h2>
 		</section>
 	)
 }
