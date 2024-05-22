@@ -51,20 +51,22 @@ export async function getUniqueTags() {
 	return ([...uniqueTagsSet])
 }
 
-export async function getIconsFilteredData() {
-	let arrAfterSearch = []	
-	if (value.iconsArray.length > 0) {
-		//? отображения списка иконок по ТЭГАМ
-		arrAfterSearch = value.iconsArray.filter(function (item) {
-			return item.tags.toLowerCase().includes(userQuery.toLowerCase())
-		})
-		//? отображения списка иконок по ID
-		if (arrAfterSearch.length === 0) {
-			arrAfterSearch = value.iconsArray.filter(function (item) {
-				return item.id.includes(userQuery)
-			})
-		}
-	}
+export async function getIconsFilteredData(param) {
+	console.log(param)
+	// let arrAfterSearch = []	
+	// if (value.iconsArray.length > 0) {
+	// 	//? отображения списка иконок по ТЭГАМ
+	// 	arrAfterSearch = value.iconsArray.filter(function (item) {
+	// 		return item.tags.toLowerCase().includes(userQuery.toLowerCase())
+	// 	})
+	// 	//? отображения списка иконок по ID
+	// 	if (arrAfterSearch.length === 0) {
+	// 		arrAfterSearch = value.iconsArray.filter(function (item) {
+	// 			return item.id.includes(userQuery)
+	// 		})
+	// 	}
+	// }
+	return 'flag'
 }
 
 

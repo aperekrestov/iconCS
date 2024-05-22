@@ -23,7 +23,6 @@ export default function SearchBar({ searchText = ''}) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		// todo .../icons?icon=abc$id=123
 		goToUserQueryPage()
 	}
 
