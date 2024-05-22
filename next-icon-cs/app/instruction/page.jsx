@@ -1,4 +1,4 @@
-import { getData } from "@/app/utils/get-data"
+import { getData } from '@/app/utils/get-data'
 
 export default async function Instruction() {
 	const iconsId = await getData()

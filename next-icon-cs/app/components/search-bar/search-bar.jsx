@@ -1,11 +1,11 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { getIconsApprovedData, getUniqueTags } from '@/app/utils/get-data'
+import { getIconsApprovedId, getUniqueTags } from '@/app/utils/get-data'
 import styles from './search-bar.module.scss'
 
 export default function SearchBar({ searchText = ''}) {
-	const [iconsApprovedData, setIconsApprovedData] = useState([])
+	const [iconsApprovedId, setIconsApprovedId] = useState([])
 	const [iconsUniqueTags, setIconsUniqueTags] = useState([])
 	const [coincidence, setCoincidence] = useState([])
 	const router = useRouter()
@@ -19,6 +19,12 @@ export default function SearchBar({ searchText = ''}) {
 		if (!e.currentTarget.contains(e.relatedTarget)) {
 			setCoincidence([])
 		}
+	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		// todo .../icons?icon=abc$id=123
+		goToUserQueryPage()
 	}
 
 	const clickCoincidence = (e) => {
@@ -47,10 +53,9 @@ export default function SearchBar({ searchText = ''}) {
 		let regex = new RegExp('^' + inputValue, 'gi')
 		//? задаем список подсказок из массива ТЭГОВ
 		let coincidencesFullArray = iconsUniqueTags.filter(item => { return item.match(regex) })
-		//todo задаем списко подсказок из ID значений, если по ТЭГАМ нет совпадений
-		// if (coincidencesFullArray.length === 0) {
-		// 	coincidencesFullArray = value.listID.filter(item => { return item.match(regex) })
-		// }
+		if (coincidencesFullArray.length === 0) {
+			coincidencesFullArray = iconsApprovedId.filter(item => { return item.match(regex) })
+		}
 		return coincidencesFullArray.slice(0, 5)
 	}
 
@@ -58,23 +63,29 @@ export default function SearchBar({ searchText = ''}) {
 		if (e.keyCode === 40) {
 			e.preventDefault()
 			coincidenceTabIndex === coincidenceList.current.children.length - 1 ? coincidenceTabIndex = 0 : coincidenceTabIndex++
-			coincidenceList.current.children[coincidenceTabIndex].focus()
-			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
+			optionPrewNext()
 		}
 		if (e.keyCode === 38) {
 			e.preventDefault()
 			coincidenceTabIndex <= 0 ? coincidenceTabIndex = coincidenceList.current.children.length - 1 : coincidenceTabIndex--
-			coincidenceList.current.children[coincidenceTabIndex].focus()
-			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
+			optionPrewNext()
 		}
 		if (e.keyCode === 13) {
 			goToUserQueryPage()
 		}
 	}
 
+	function optionPrewNext() {
+		if(coincidence.length > 0) {
+			coincidenceList.current.children[coincidenceTabIndex].focus()
+			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
+		}
+	}
+
 	useEffect(() => {
 		const fetchData = async () => {
 			setIconsUniqueTags(await getUniqueTags())
+			setIconsApprovedId(await getIconsApprovedId())
 		}
 
 		fetchData()
@@ -83,7 +94,7 @@ export default function SearchBar({ searchText = ''}) {
 	return (
 		<form
 			onChange={handleChange} 
-			// onSubmit={handleSubmit} 
+			onSubmit={handleSubmit} 
 			onBlur={handleFocuseout}
 			className={styles.searchForm}
 			autoComplete='off'

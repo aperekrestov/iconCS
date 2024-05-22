@@ -33,6 +33,14 @@ export async function getIconsApprovedData() {
 	return iconsApprovedWithImgUrl
 }
 
+export async function getIconsApprovedId() {
+	const iconsApprovedData = await getIconsApprovedData()
+	const iconsApprovedId = iconsApprovedData.map(item => { 
+		return item.id 
+	})
+	return iconsApprovedId
+}
+
 export async function getUniqueTags() {
 	//? определяем массив уникальных тегов для подсказки в поисковой строке
 	const iconsApprovedData = await getIconsApprovedData()
@@ -42,6 +50,23 @@ export async function getUniqueTags() {
 	const uniqueTagsSet = new Set(iconArrayTagsSplit)
 	return ([...uniqueTagsSet])
 }
+
+export async function getIconsFilteredData() {
+	let arrAfterSearch = []	
+	if (value.iconsArray.length > 0) {
+		//? отображения списка иконок по ТЭГАМ
+		arrAfterSearch = value.iconsArray.filter(function (item) {
+			return item.tags.toLowerCase().includes(userQuery.toLowerCase())
+		})
+		//? отображения списка иконок по ID
+		if (arrAfterSearch.length === 0) {
+			arrAfterSearch = value.iconsArray.filter(function (item) {
+				return item.id.includes(userQuery)
+			})
+		}
+	}
+}
+
 
 
 
