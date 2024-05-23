@@ -35,8 +35,8 @@ export async function getIconsApprovedData() {
 
 export async function getIconsApprovedId() {
 	const iconsApprovedData = await getIconsApprovedData()
-	const iconsApprovedId = iconsApprovedData.map(item => { 
-		return item.id 
+	const iconsApprovedId = iconsApprovedData.map(item => {
+		return item.id
 	})
 	return iconsApprovedId
 }
@@ -51,22 +51,20 @@ export async function getUniqueTags() {
 	return ([...uniqueTagsSet])
 }
 
-export async function getIconsFilteredData(param) {
-	console.log(param)
-	// let arrAfterSearch = []	
-	// if (value.iconsArray.length > 0) {
-	// 	//? отображения списка иконок по ТЭГАМ
-	// 	arrAfterSearch = value.iconsArray.filter(function (item) {
-	// 		return item.tags.toLowerCase().includes(userQuery.toLowerCase())
-	// 	})
-	// 	//? отображения списка иконок по ID
-	// 	if (arrAfterSearch.length === 0) {
-	// 		arrAfterSearch = value.iconsArray.filter(function (item) {
-	// 			return item.id.includes(userQuery)
-	// 		})
-	// 	}
-	// }
-	return 'flag'
+export async function getIconsFilteredData(userQuery) {
+	// todo убрать лог
+	console.log('-' + userQuery + '-')
+	const iconsApprovedData = await getIconsApprovedData()
+	let arrAfterSearch = iconsApprovedData.filter((item) => {
+		return item.tags.toLowerCase().includes(userQuery.toLowerCase())
+	})
+	if(arrAfterSearch.length === 0){
+		arrAfterSearch = iconsApprovedData.filter((item) => {
+			return item.id.includes(userQuery)
+		})
+	}
+	// console.log(arrAfterSearch)
+	return arrAfterSearch
 }
 
 
