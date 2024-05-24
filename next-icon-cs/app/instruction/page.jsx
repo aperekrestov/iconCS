@@ -6,7 +6,7 @@ export default async function Instruction() {
 	return (
 		<article>
 			<h1>Игтсрукции</h1>
-			<ul>
+			{/* <ul>
 				{iconsId.map((item) => {
 					return (
 						<li key={item.id}>
@@ -15,7 +15,7 @@ export default async function Instruction() {
 
 					)
 				})}
-			</ul>
+			</ul> */}
 		</article>
 	)
 }
