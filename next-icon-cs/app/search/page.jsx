@@ -2,11 +2,10 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { getIconsFilteredData } from '@/app/utils/get-data'
+// import Gallery from '@/app/components/gallery/gallery'
 
 export default function Search() {
-	// const userQuery = searchParams.get('icons')
 	const searchParams = useSearchParams()
-	// const [userQuery, setUserQuery] = useState('')
 	const [iconsFilteredData, setIconsFilteredData] = useState([])
 
 	useEffect(() => {
@@ -14,12 +13,13 @@ export default function Search() {
 			setIconsFilteredData(await getIconsFilteredData(searchParams.get('icons')))
 		}
 		fetchData()
-	}, [])
+	}, [searchParams])
 
 	return (
 		<section>
 			<h1>Поиск</h1>
 			<h2>{searchParams.get('icons')}</h2>
+			{/* <Gallery /> */}
 			<ul>
 				{iconsFilteredData.map((item) => {
 					return (<li key={item.id}>{item.id}</li>)

@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { getIconsApprovedId, getUniqueTags } from '@/app/utils/get-data'
 import styles from './search-bar.module.scss'
@@ -8,7 +9,9 @@ export default function SearchBar({ searchText = ''}) {
 	const [iconsApprovedId, setIconsApprovedId] = useState([])
 	const [iconsUniqueTags, setIconsUniqueTags] = useState([])
 	const [coincidence, setCoincidence] = useState([])
+
 	const router = useRouter()
+	const pathname = usePathname()
 	const coincidenceList = useRef(null)
 	const userQuery = useRef(null)
 
@@ -89,6 +92,10 @@ export default function SearchBar({ searchText = ''}) {
 
 		fetchData()
 	}, [])
+
+	useEffect(() => {
+		userQuery.current.value = ''
+	}, [pathname])
 
 	return (
 		<form

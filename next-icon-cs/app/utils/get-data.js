@@ -53,7 +53,7 @@ export async function getUniqueTags() {
 
 export async function getIconsFilteredData(userQuery) {
 	// todo убрать лог
-	console.log('-' + userQuery + '-')
+	// console.log('-' + userQuery + '-')
 	const iconsApprovedData = await getIconsApprovedData()
 	let arrAfterSearch = iconsApprovedData.filter((item) => {
 		return item.tags.toLowerCase().includes(userQuery.toLowerCase())
@@ -63,7 +63,7 @@ export async function getIconsFilteredData(userQuery) {
 			return item.id.includes(userQuery)
 		})
 	}
-	// console.log(arrAfterSearch)
+	// todo убрать условие поиска по id и собирать совпадения, добавляя к основной выдаче
 	return arrAfterSearch
 }
 
