@@ -46,7 +46,7 @@ export default function NavLinks() {
 						: styles.nav_btn + ' ' + styles.nav_btn__4}`
 				}
 				href='/load-pdf'
-				data-title='ЗАГРУЗИТЬ PDF'
+				data-title='PDF'
 			></Link>
 
 		</nav>

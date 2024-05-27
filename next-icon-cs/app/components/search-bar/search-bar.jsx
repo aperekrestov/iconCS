@@ -36,6 +36,7 @@ export default function SearchBar({ searchText = ''}) {
 
 	const goToUserQueryPage = () => {
 		// todo window.scrollTo(0, 0)
+		// todo проверка пробеды в запросе запроса
 
 		if (userQuery.current.value !== '') {
 			setCoincidence([])
