@@ -18,11 +18,13 @@ export default function Search() {
 
 	return (
 		<section>
-			<h3>{searchParams.get('icons')}</h3>
-			<p>Найдено файлов: <i>{iconsFilteredData.length}</i></p>
-			{iconsFilteredData.length > 0 &&
-				<Gallery arrayData={iconsFilteredData} />
-			}
+			<div className={'content_width_large'}>
+				<h3>{searchParams.get('icons')}</h3>
+				<p>Найдено файлов: <i>{iconsFilteredData.length}</i></p>
+				{iconsFilteredData.length > 0 &&
+					<Gallery arrayData={iconsFilteredData} />
+				}
+			</div>
 		</section>
 	)
 }
