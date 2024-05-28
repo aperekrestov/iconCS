@@ -18,13 +18,13 @@
 
 .left_side {
 	//! ширина должна быть равной ширине right_side
-	width: $size-8;
+	width: calc($size-8 + $size-3);
 	// background-color: gray;
 }
 
 .right_side {
 	//! ширина должна быть равной ширине left_side
-	width: $size-8;
+	width: calc($size-8 + $size-3);
 	// background-color: gray;
 }
 

@@ -1,4 +1,4 @@
-export default async function Instruction() {
+export default function Instruction() {
 	return (
 		<article>
 			<h1>Игтсрукции</h1>

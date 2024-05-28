@@ -4,7 +4,7 @@
 	display: flex;
 	justify-content: space-between;
 	list-style-type: none;
-	width: $size-8;
+	width: inherit;
 	order: 3;
 	float: right;
 
@@ -18,35 +18,43 @@
 	width: $size-2;
 	height: $size-2;
 
-	&__1 {
+	&__home {
 		background-image: url(../../../public/img/icon-0375-s.svg);
 	}
 
-	&__1_active {
+	&__home_active {
 		background-image: url(../../../public/img/icon-0375-s-active.svg);
+	
+	}
+	&__gallery {
+		background-image: url(../../../public/img/icon-gallery-s.svg);
 	}
 
-	&__2 {
+	&__gallery_active {
+		background-image: url(../../../public/img/icon-gallery-s-active.svg);
+	}
+
+	&__instructions {
 		background-image: url(../../../public/img/icon-0172-s.svg);
 	}
 
-	&__2_active {
+	&__instructions_active {
 		background-image: url(../../../public/img/icon-0172-s-active.svg);
 	}
 
-	&__3 {
+	&__legal {
 		background-image: url(../../../public/img/icon-0193-s.svg);
 	}
 
-	&__3_active {
+	&__legal_active {
 		background-image: url(../../../public/img/icon-0193-s-active.svg);
 	}
 
-	&__4 {
+	&__pdf {
 		background-image: url(../../../public/img/icon-0378-s.svg);
 	}
 
-	&__4_active {
+	&__pdf_active {
 		background-image: url(../../../public/img/icon-0378-s-active.svg);
 	}
 }
