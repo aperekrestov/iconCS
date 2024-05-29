@@ -40,6 +40,8 @@ body {
 article, section {
 	background-color: $color-1;
 	flex-grow: 1;
+	padding-top: $size-6;
+	padding-bottom: $size-7;
 }
 
 h1 {
@@ -144,6 +146,10 @@ input:focus::placeholder {
 	padding-right: $spacing-xl;
 	box-sizing: border-box;
 }
+// .content_width_middle {
+// 	margin: 0 auto;
+// 	width: $breakpoint-m;
+// }
 
 // .content_indent {
 // 	padding-left: $spacing-xl;

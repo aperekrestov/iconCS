@@ -10,7 +10,7 @@ export default function Gallery({ arrayData }) {
 				arrayData.map(({ id, title, imgUrl }) =>
 					<Link
 						key={id}
-						href={`/icon-${id}`}
+						href={`/icon?id=${id}`}
 						data-title={`id ${id}`}
 						className={styles.icon_container}
 					>
