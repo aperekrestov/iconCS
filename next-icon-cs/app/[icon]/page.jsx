@@ -1,13 +1,15 @@
 'use client'
 import { useState, useEffect } from 'react'
-import dateFormat, { } from 'dateformat'
 import { useSearchParams } from 'next/navigation'
 import { getIconsApprovedId } from '@/app/utils/get-data'
+import dateFormat, { } from 'dateformat'
+import LinkBack from '@/app/components/LinkBack/LinkBack'
 
 export default function IconPage() {
 	const searchParams = useSearchParams()
 	const id = searchParams.get('id')
 
+	const [isIdAvailable, setIsIdAvailable] = useState(false)
 	const [iconsApprovedId, setIconsApprovedId] = useState([])
 	const [iconMetaDataModified, setIconMetaDataModified] = useState(null)
 	const [iconConvertedMetaDataModified, setIconConvertedMetaDataModified] = useState(null)
@@ -37,16 +39,13 @@ export default function IconPage() {
 			setIconsApprovedId(await getIconsApprovedId(id))
 			checkId(await getIconsApprovedId(id))
 		}
-
 		const checkId = (arr) => {
 			if (arr.includes(id)) {
-				console.log(id)
+				setIsIdAvailable(true)
 			} else {
-				console.log('id отсутствует')
+				setIsIdAvailable(false)
 			}
 		}
-
-
 		fetchIconsApproovedId()
 	}, [id])
 
@@ -54,6 +53,7 @@ export default function IconPage() {
 	return (
 		<section>
 			<div className={'content_width_large'}>
+				<LinkBack />
 				<h3>ID <i>{id}</i></h3>
 				<span className={"font_ultra margin_left_ultra_small"} >{iconConvertedMetaDataModified}</span>
 				<h2>{id}</h2>

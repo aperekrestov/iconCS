@@ -1,0 +1,39 @@
+// background-image: url(../public/img/icon-0078-u.svg);
+@import '@/styles/variables.module.scss';
+
+.link_back{
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	height: $size-4;
+	padding: 0 $size-2;
+	margin-left: calc($size-2 * -1);
+	transition: $transition-regular;
+	
+	.link_back__icon{
+		position: relative;
+		width: $size-2;
+		height: $size-2;
+		margin-right: $size-1;
+	}
+	
+	.link_back__icon::before{
+		content: '';
+		position: absolute;
+		width: inherit;
+		height: inherit;
+		left: 0px;
+		background-image: url(../../../public/img/icon-0181-s.svg);
+		background-repeat: no-repeat;
+		transition: $transition-fast;
+		
+	}
+}
+
+.link_back:hover {
+	background-color: $color-hover-1;
+	.link_back__icon::before{
+		left: -$size-1;
+		transform: scale(0.9, 1.1);
+	}
+}
