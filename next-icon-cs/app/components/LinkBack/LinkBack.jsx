@@ -12,7 +12,10 @@ export default function LinkBack() {
 			onClick={router.back}
 			className={styles.link_back + ' ' + 'font_small'}
 		>
-			<span className={styles.link_back__icon}></span>
+			<div className={styles.link_back__icon}>
+				<span className={styles.link_back__arrow}></span>
+				{/* <span className={styles.link_back__line}></span> */}
+			</div>
 			Назад
 		</Link>
 	)

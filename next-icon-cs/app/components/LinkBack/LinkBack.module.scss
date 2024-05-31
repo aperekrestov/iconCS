@@ -1,39 +1,57 @@
 // background-image: url(../public/img/icon-0078-u.svg);
 @import '@/styles/variables.module.scss';
 
-.link_back{
+.link_back {
 	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
 	height: $size-4;
-	padding: 0 $size-2;
-	margin-left: calc($size-2 * -1);
+	padding: 0 $size-1;
+	margin-left: calc($size-1 * -1);
 	transition: $transition-regular;
-	
-	.link_back__icon{
-		position: relative;
-		width: $size-2;
-		height: $size-2;
-		margin-right: $size-1;
-	}
-	
-	.link_back__icon::before{
-		content: '';
-		position: absolute;
-		width: inherit;
-		height: inherit;
-		left: 0px;
-		background-image: url(../../../public/img/icon-0181-s.svg);
-		background-repeat: no-repeat;
-		transition: $transition-fast;
-		
-	}
+}
+
+.link_back__icon {		
+	display: flex;
+	align-items: center;
+	width: $size-2;
+	height: $size-2;
+	margin-right: $size-1;
+}
+
+.link_back__arrow {
+	background-image: url(../../../public/img/icon-0181-s.svg);
+	transition: $transition-fast;
+	width: inherit;
+	height: inherit;
+
+	// width: 0;
+	// height: 0;
+	// border-top: 5px solid transparent;
+	// border-bottom: 5px solid transparent;
+	// border-right: 6px solid $color-10;
+	// border-radius: 3px;
+	// display: block;
+	transition: $transition-fast;
+}
+
+.link_back__line {
+	width: $size-1;
+	height: 1px;
+	background-color: $color-10;
 }
 
 .link_back:hover {
 	background-color: $color-hover-1;
-	.link_back__icon::before{
-		left: -$size-1;
-		transform: scale(0.9, 1.1);
+
+	.link_back__arrow {
+		transform: scale(1.1, 0.8);
+		// border-right: 5px solid $color-10;
+		// margin-left: -$size-0;
+		margin-left: -13px;
 	}
+
+	// .link_back__line {
+	// 	width: $size-0;
+	// }
 }

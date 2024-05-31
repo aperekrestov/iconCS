@@ -13,8 +13,8 @@ $color-12: #C8DDEA;
 $color-13: #D6F0BF;
 $color-14: #F5FAFC;
 
-$color-hover-1: $color-5;
-// $color-hover-1: rgba(12, 18, 28, 0.04);
+// $color-hover-1: $color-4;
+$color-hover-1: rgba(12, 18, 28, 0.05);
 
 $size-0: 4px;
 $size-1: 8px;
@@ -51,8 +51,8 @@ $spacing-m: $size-2;
 $spacing-l: $size-3;
 $spacing-xl: $size-4;
 
-$transition-regular: all .4s ease;
-$transition-fast: all .2s ease;
+$transition-regular: all .4s ease-out;
+$transition-fast: all .2s ease-out;
 $time-slow: 1s;
 $time-regular: .4s;
 $time-fast: .2s;
