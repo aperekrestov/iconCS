@@ -48,6 +48,7 @@ h1 {
 	font-size: $size-5;
 	font-weight: 300;
 	box-sizing: border-box;
+	padding-bottom: $size-2;
 }
 
 h2 {
@@ -59,6 +60,7 @@ h2 {
 
 h3 {
 	font-size: 18px;
+	font-weight: 400;
 	padding-bottom: $spacing-s;
 	text-transform: uppercase;
 	line-height: 160%;
@@ -142,6 +144,7 @@ input:focus::placeholder {
 
 .font_ultra {
 	font-size: 11px;
+	// font-weight: 300;
 	line-height: 11px;
 	letter-spacing: 1.4px;
 	text-transform: uppercase;
@@ -166,6 +169,10 @@ input:focus::placeholder {
 	padding-left: $spacing-xl;
 	padding-right: $spacing-xl;
 	box-sizing: border-box;
+}
+
+.bg_grey {
+	background-color: $color-5;
 }
 // .content_width_middle {
 // 	margin: 0 auto;

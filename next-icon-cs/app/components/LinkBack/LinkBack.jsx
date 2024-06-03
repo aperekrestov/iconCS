@@ -14,7 +14,6 @@ export default function LinkBack() {
 		>
 			<div className={styles.link_back__icon}>
 				<span className={styles.link_back__arrow}></span>
-				{/* <span className={styles.link_back__line}></span> */}
 			</div>
 			Назад
 		</Link>

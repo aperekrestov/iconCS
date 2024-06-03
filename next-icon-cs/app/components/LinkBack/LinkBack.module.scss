@@ -8,6 +8,7 @@
 	height: $size-4;
 	padding: 0 $size-1;
 	margin-left: calc($size-1 * -1);
+	margin-bottom: $size-3;
 	transition: $transition-regular;
 }
 
@@ -24,21 +25,7 @@
 	transition: $transition-fast;
 	width: inherit;
 	height: inherit;
-
-	// width: 0;
-	// height: 0;
-	// border-top: 5px solid transparent;
-	// border-bottom: 5px solid transparent;
-	// border-right: 6px solid $color-10;
-	// border-radius: 3px;
-	// display: block;
 	transition: $transition-fast;
-}
-
-.link_back__line {
-	width: $size-1;
-	height: 1px;
-	background-color: $color-10;
 }
 
 .link_back:hover {
@@ -46,12 +33,6 @@
 
 	.link_back__arrow {
 		transform: scale(1.1, 0.8);
-		// border-right: 5px solid $color-10;
-		// margin-left: -$size-0;
-		margin-left: -13px;
+		margin-left: -$size-1;
 	}
-
-	// .link_back__line {
-	// 	width: $size-0;
-	// }
 }
