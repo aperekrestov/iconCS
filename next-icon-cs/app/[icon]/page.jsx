@@ -5,7 +5,8 @@ import { getIconsApprovedId } from '@/app/utils/get-data'
 
 import LinkBack from '@/app/components/LinkBack/LinkBack'
 import IconInfo from '@/app/components/IconInfo/IconInfo'
-import TagList from '../components/TagList/TagLit'
+import TagList from '@/app/components/TagList/TagLit'
+import IconMixer from '@/app/components/IconMixer/IconMixer'
 
 export default function IconPage() {
 	const searchParams = useSearchParams()
@@ -36,7 +37,10 @@ export default function IconPage() {
 						<div className='width_third'>
 							<IconInfo id={id} />
 						</div>
-						<TagList id={id} />
+						<div>
+							<IconMixer id={id}/>
+							<TagList id={id} />
+						</div>
 					</div>
 					:
 					<div>

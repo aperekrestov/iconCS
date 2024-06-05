@@ -49,12 +49,12 @@ h1 {
 	font-size: $size-5;
 	font-weight: 300;
 	box-sizing: border-box;
-	padding-bottom: $size-2;
+	// padding-bottom: $size-2;
 }
 
 h2 {
 	font-size: $size-4;
-	padding-bottom: $spacing-l;
+	// padding-bottom: $spacing-l;
 	box-sizing: border-box;
 	word-wrap: break-word;
 }
@@ -62,9 +62,17 @@ h2 {
 h3 {
 	font-size: 18px;
 	font-weight: 400;
-	padding-bottom: $spacing-s;
+	// padding-bottom: $spacing-s;
 	text-transform: uppercase;
 	line-height: 160%;
+}
+h4 {
+	font-size: 11px;
+	line-height: 11px;
+	letter-spacing: 1.4px;
+	font-weight: 400;
+	text-transform: uppercase;
+	// padding-bottom: $spacing-s;
 }
 
 p,
@@ -145,13 +153,13 @@ input:focus::placeholder {
 	font-weight: 500;
 }
 
-.font_ultra {
-	font-size: 11px;
-	// font-weight: 300;
-	line-height: 11px;
-	letter-spacing: 1.4px;
-	text-transform: uppercase;
-}
+// .font_ultra {
+// 	font-size: 11px;
+// 	// font-weight: 300;
+// 	line-height: 11px;
+// 	letter-spacing: 1.4px;
+// 	text-transform: uppercase;
+// }
 
 .wrapper_main {
 	height: 100vh;

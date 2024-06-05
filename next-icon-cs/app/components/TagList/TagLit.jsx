@@ -17,13 +17,18 @@ export default function TagList({ id }) {
 	return (
 		<div>
 			{itemTags.length > 0 &&
-				<div className={styles.tags_container}>
-					{itemTags.map((tag) => {
-						return (
-							<Link href={`/search?icons=${tag}`} key={tag} className={styles.tag + ' ' + 'font_ultra'}>{tag.toLowerCase()}</Link>
-						)
-					})}
-				</div>
+				<>
+					<h4>теги:</h4>
+					<div className={styles.tags_container}>
+						{itemTags.map((tag) => {
+							return (
+								<Link href={`/search?icons=${tag}`} key={tag} className={styles.tag}>
+									<h4>{tag.toLowerCase()}</h4>
+								</Link>
+							)
+						})}
+					</div>
+				</>
 			}
 		</div>
 
