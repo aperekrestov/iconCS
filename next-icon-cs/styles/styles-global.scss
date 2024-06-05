@@ -37,7 +37,8 @@ body {
 	color: $color-10;
 }
 
-article, section {
+article,
+section {
 	background-color: $color-1;
 	flex-grow: 1;
 	padding-top: $size-6;
@@ -105,12 +106,14 @@ input:focus::placeholder {
 	color: $color-7;
 	text-align: center;
 }
+
 [data-title]:hover:after {
 	content: attr(data-title);
 	transition: $transition-fast;
 	pointer-events: none;
 	opacity: 1;
 }
+
 [data-title]:not(:hover):after {
 	content: attr(data-title);
 	transition: $transition-regular;
@@ -171,18 +174,26 @@ input:focus::placeholder {
 	box-sizing: border-box;
 }
 
+.content_width_middle {
+	margin: 0 auto;
+	width: $breakpoint-m;
+}
+
 .bg_grey {
 	background-color: $color-5;
 }
-// .content_width_middle {
-// 	margin: 0 auto;
-// 	width: $breakpoint-m;
-// }
 
 // .content_indent {
 // 	padding-left: $spacing-xl;
 // 	padding-right: $spacing-xl;
 // }
+.flex_container {
+	display: flex;
+}
+
+.width_third {
+	min-width: 33%;
+}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {

@@ -1,5 +1,6 @@
 import { HOST, FOLDER, SVG_EXTENSION, GENERAL_SIZE } from '@/app/utils/constants'
 
+
 export async function getData() {
 	try {
 		const res = await fetch(`${HOST}csoft-icons-collection.json`)
@@ -67,7 +68,13 @@ export async function getIconsFilteredData(userQuery) {
 	return arrAfterSearch
 }
 
-
+export async function getIconTags(id) {
+	const iconsApprovedData = await getIconsApprovedData()
+	let item = iconsApprovedData.filter((i) => {
+		return i.id.includes(id)
+	})
+	return item[0].tags.split(", ")
+}
 
 
 export const getIconImageUrl = id => FOLDER + GENERAL_SIZE + "x" + GENERAL_SIZE + "/" + id + SVG_EXTENSION

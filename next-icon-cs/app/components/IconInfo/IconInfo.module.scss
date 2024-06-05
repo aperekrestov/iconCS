@@ -1,6 +1,15 @@
 @import '@/styles/variables.module.scss';
 
-.icon{
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.icon {
 	width: $size-8;
 	height: $size-8;
+}
+
+.date {
+	margin-bottom: $size-4;
 }
