@@ -139,6 +139,10 @@ input:focus::placeholder {
 	cursor: pointer;
 }
 
+.color_red {
+	color: $color-3;
+}
+
 .font_bold {
 	font-weight: 700;
 	// font-weight: 600;
@@ -151,6 +155,25 @@ input:focus::placeholder {
 .font_small {
 	font-size: 14px;
 	font-weight: 500;
+}
+
+.margin_bottom_s {
+	margin-bottom: $spacing-s;
+}
+
+.margin_bottom_m {
+	margin-bottom: $spacing-m;
+}
+
+.margin_bottom_l {
+	margin-bottom: $spacing-l;
+}
+
+.margin_bottom_xl {
+	margin-bottom: $spacing-xl;
+}
+.margin_bottom_xxl {
+	margin-bottom: $spacing-xxl;
 }
 
 // .font_ultra {

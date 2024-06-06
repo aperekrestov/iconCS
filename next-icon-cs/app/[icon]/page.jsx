@@ -44,8 +44,8 @@ export default function IconPage() {
 					</div>
 					:
 					<div>
-						<h3>ID <i>{id}</i></h3>
-						<span className={'font_ultra'}>Не существует</span>
+						<h3 className='margin_bottom_s'>ID <i>{id}</i></h3>
+						<h4 className='margin_bottom_xl'>Не существует</h4>
 					</div>
 				}
 

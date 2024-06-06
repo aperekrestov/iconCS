@@ -11,13 +11,13 @@
 	justify-content: center;
 	user-select: none;
 	cursor: pointer;
-	color: $color-7;
-	background-color: $color-14;
+	// color: $color-7;
+	background-color: $color-4;
 	height: $size-3;
 	border-radius: calc($size-3/2);
 	padding: 0 $size-2;
 	margin: 0 $size-1 $size-1 0;
-	transition: $transition-regular;
+	transition: $transition-fast;
 }
 
 .tag:hover{

@@ -79,7 +79,7 @@ export async function getIconTags(id) {
 
 export const getIconImageUrl = id => FOLDER + GENERAL_SIZE + "x" + GENERAL_SIZE + "/" + id + SVG_EXTENSION
 
-// export const getIconSvgUrl = (id, size) => FOLDER + size + "x" + size + "/" + id + SVG_EXTENSION
+export const getIconSvgUrl = (id, size) => FOLDER + size + "x" + size + "/" + id + SVG_EXTENSION
 
 // export const getIconTags = string => { return string.split(", ") }
 

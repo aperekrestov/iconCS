@@ -36,8 +36,8 @@ export default function IconInfo({ id }) {
 
 	return (
 		<div className={styles.container}>
-			<h3>ID <i>{id}</i></h3>
-			<h4>{`Создан ${dateModified}`}</h4>
+			<h3 className='margin_bottom_s'>ID <i>{id}</i></h3>
+			<h4 className='margin_bottom_xl'>Создан {dateModified}</h4>
 			<Image
 				src={getIconImageUrl(id)}
 				width={32}

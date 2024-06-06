@@ -18,7 +18,7 @@ export default function TagList({ id }) {
 		<div>
 			{itemTags.length > 0 &&
 				<>
-					<h4>теги:</h4>
+					<h4 className='margin_bottom_m'><b>теги:</b> {itemTags.length}</h4>
 					<div className={styles.tags_container}>
 						{itemTags.map((tag) => {
 							return (
@@ -31,13 +31,5 @@ export default function TagList({ id }) {
 				</>
 			}
 		</div>
-
-		// <ul className={styles.tags_list}>
-		// 		{iconTags.map(tag => 
-		// 			<li key={tag} className={cn("font_ultra", styles.tag)}>
-		// 				<NavLink to={`/search=${tag}`}>{tag}</NavLink>
-		// 			</li>
-		// 		)}
-		// 	</ul>
 	)
 }

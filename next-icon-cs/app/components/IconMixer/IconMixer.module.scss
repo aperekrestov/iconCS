@@ -1,1 +1,33 @@
 @import '@/styles/variables.module.scss';
+
+.size_radio_btn_container{
+	display: inline-flex;
+	align-items: center;
+	height: $size-4;
+	border-radius: calc($size-4 / 2);
+	background-color: $color-8;
+}
+.size_radio_btn {
+	margin: 0 $size-0;
+}
+.size_radio_btn input[type=radio] {
+	display: none;
+}
+.size_radio_btn label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	padding: 0 $size-2;
+	height: $size-3;
+	border-radius: calc($size-3 / 2);
+	user-select: none;
+	transition: $transition-fast;
+}
+.size_radio_btn input[type=radio]:checked + label {
+	color: $color-8;
+	background-color: $color-10;
+}
+.size_radio_btn label:hover {
+	background-color: $color-hover-2;
+}
