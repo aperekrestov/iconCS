@@ -14,6 +14,60 @@ export default function IconMixer({ id }) {
 
 	const errorMassege = 'Файл #' + id + ' размером ' + size + 'x' + size + ' не найден'
 
+	function handleClick() {
+		if (extention === SVG_EXTENSION) {
+			triggerDownload(blobFinalSvg(svgModificator()), id + ".svg");
+		} else {
+			downloadPNG(id + PNG_EXTENSION)
+		}
+	}
+	const blobFinalSvg = (svg) => {
+		const blob = new Blob([svg], { type: "text/plain" })
+		return URL.createObjectURL(blob)
+	}
+	function triggerDownload(fileURI, fileName) {
+		let evt = new MouseEvent("click", {
+			view: window,
+			bubbles: false,
+			cancelable: true
+		});
+		let a = document.createElement("a")
+		a.setAttribute("download", fileName)
+		a.setAttribute("href", fileURI)
+		a.setAttribute("target", '_blank')
+		a.dispatchEvent(evt)
+	}
+	function downloadPNG(fileName) {
+		let canvas = document.createElement("canvas")
+		canvas.width = size
+		canvas.height = size
+		let ctx = canvas.getContext("2d")
+		ctx.clearRect(0, 0, size, size)
+		let DOMURL = window.URL || window.webkitURL || window
+		let img = new Image()
+		let svgBlob = new Blob([svgModificator()], { type: "image/svg+xml;charset=utf-8" })
+		let url = DOMURL.createObjectURL(svgBlob)
+
+		img.onload = function () {
+			ctx.drawImage(img, 0, 0)
+			DOMURL.revokeObjectURL(url)
+			if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob) {
+				let blob = canvas.msToBlob()
+				navigator.msSaveOrOpenBlob(blob, fileName)
+			}
+			else {
+				let imgURI = canvas
+					.toDataURL("image/png")
+					.replace("image/png", "image/octet-stream")
+				triggerDownload(imgURI, fileName)
+			}
+			// document.removeChild(canvas)
+			canvas = null
+		};
+		img.src = url;
+	}
+
+
 	function handleSizeChange(e) {
 		switch (e.target.value) {
 			case SMALL:
@@ -45,18 +99,7 @@ export default function IconMixer({ id }) {
 	}
 
 	function handleExtentionChange(e) {
-		switch (e.target.value) {
-			case SVG_EXTENSION:
-				setExtention(SVG_EXTENSION)
-				break
-			case PNG_EXTENSION:
-				setExtention(PNG_EXTENSION)
-				break
-
-			default:
-				setExtention(SVG_EXTENSION)
-				break
-		}
+		e.target.value === PNG_EXTENSION ? setExtention(PNG_EXTENSION) : setExtention(SVG_EXTENSION)
 	}
 
 	const svgModificator = () => {
@@ -79,15 +122,11 @@ export default function IconMixer({ id }) {
 
 	useEffect(() => {
 		const fetchSvgData = async () => {
-			let currentSize = GENERAL_SIZE
-			if (Number(size) >= Number(LARGE)) {
-				currentSize = LARGE
-			} else {
-				currentSize = size
-			}
+			let currentSize = size >= Number(LARGE) ? LARGE : size
+			//? по факту не подгружаем иконку крупнее 32x32
 			const response = await fetch(getIconSvgUrl(id, currentSize))
 			if (response.ok) {
-				let responseText= await response.text()
+				let responseText = await response.text()
 				setSvgData(responseText)
 				return
 			} else {
@@ -134,7 +173,7 @@ export default function IconMixer({ id }) {
 				</div>
 			</form>
 
-			<form className='margin_bottom_xl'>
+			<form className='margin_bottom_xxl'>
 				<h4 className='margin_bottom_m'><b>файл:</b> {id}{extention}</h4>
 
 				<div className={styles.size_radio_btn_container}>
@@ -149,27 +188,32 @@ export default function IconMixer({ id }) {
 				</div>
 			</form>
 
-
 			<h4 className='margin_bottom_m'>результат:</h4>
 
+			//todo оформить отдельный компонент с результатом миксера
 			{svgData
 				?
-				<div className={styles.result + ' ' + 'margin_bottom_xxl'}>
-					<div className={styles.result__corners_container}>
-						{/* <img src={corner_top_left} alt='рамка' />
-						<img src={corner_top_right} alt='рамка' /> */}
+				<>
+					<div className={styles.result + ' ' + 'margin_bottom_l'}>
+						<div className={styles.result__corners_container}>
+							<div className={styles.result__corner_top_left + ' ' + styles.result__corner}></div>
+							<div className={styles.result__corner_top_right + ' ' + styles.result__corner}></div>
+						</div>
+						<div className={styles.result__icon_container} style={iconContainerStyle()}>
+							<div style={iconStyle(svgModificator())}></div>
+						</div>
+						<div className={styles.result__corners_container}>
+							<div className={styles.result__corner_bottom_left + ' ' + styles.result__corner}></div>
+							<div className={styles.result__corner_bottom_right + ' ' + styles.result__corner}></div>
+						</div>
 					</div>
-					<div className={styles.result__icon_container} style={iconContainerStyle()}>
-						<div style={iconStyle(svgModificator())}></div>
-					</div>
-					<div className={styles.result__corners_container}>
-						{/* <img src={corner_bottom_left} alt='рамка' />
-						<img src={corner_bottom_right} alt='рамка' /> */}
-					</div>
-				</div>
+
+					<button className='margin_bottom_xxl' onClick={handleClick} >Загрузить</button>
+				</>
 				:
 				<h4 className='margin_bottom_xl color_red'>{errorMassege}</h4>
 			}
+
 		</div>
 	)
 }

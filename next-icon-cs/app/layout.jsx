@@ -6,7 +6,7 @@ import Footer from '@/app/components/footer/Footer'
 import stylesGlobal from '@/styles/styles-global.scss'
 
 const inter = Ubuntu({
-	weight: ['300', '400', '500', '700'],
+	weight: ['300', '400', '700'],
 	style: ['normal', 'italic'],
 	subsets: ['cyrillic', 'latin'],
 	display: 'swap',
