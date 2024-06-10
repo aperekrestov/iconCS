@@ -1,0 +1,40 @@
+@import '@/styles/variables.module.scss';
+
+.result {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: space-between;
+
+	&__icon_container {
+		margin: 0 $size-0;
+		background-image: url(../../../public/img/pattern-alpha-light.svg);
+	}
+
+	&__corners_container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__corner {
+		width: $size-0;
+		height: $size-0;
+	}
+
+	&__corner_top_left {
+		background-image: url(../../../public/img/corner-top-left.svg);
+	}
+
+	&__corner_top_right {
+		background-image: url(../../../public/img/corner-top-right.svg);
+	}
+
+	&__corner_bottom_left {
+		background-image: url(../../../public/img/corner-bottom-left.svg);
+	}
+
+	&__corner_bottom_right {
+		background-image: url(../../../public/img/corner-bottom-right.svg);
+	}
+}
