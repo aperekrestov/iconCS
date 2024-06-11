@@ -19,8 +19,9 @@
 
 	&__btn {
 		display: flex;
-		aspect-ratio: 1 / 1;
+		width: unset;
 		height: inherit;
+		aspect-ratio: 1 / 1;
 		margin-right: 2px;
 		background-image: url(../../../public/img/icon-0127-s.svg);
 		background-repeat: no-repeat;
@@ -28,29 +29,11 @@
 		background-color: $color-10;
 		cursor: pointer;
 	}
+
+	&__btn:hover {
+		border: unset;
+	}
 }
-
-// .icon_container a[data-title]:hover:after {
-// 	left: 0;
-// 	top: calc(100% + 16px);
-// 	width: 100%;
-// 	position: absolute;
-// }
-// .icon_container a[data-title]:not(:hover):after {
-// 	left: 0;
-// 	top: calc(100% + 16px);
-// 	width: 100%;
-// 	position: absolute;
-// }
-
-
-// .searchForm:hover {
-// 	outline: 2px solid $color-4;
-// }
-
-// .searchForm:focus-within {
-// 	outline: 2px solid $color-3;
-// }
 
 .searchOptions {
 	position: absolute;
@@ -60,7 +43,7 @@
 	border: 1px solid $color-10;
 	box-sizing: border-box;
 	// max-height: calc($size-5 * 6);
-	
+
 	li {
 		display: flex;
 		align-items: center;
@@ -70,13 +53,13 @@
 		cursor: pointer;
 		user-select: none;
 	}
-	
+
 	li:focus {
 		outline: none;
 		background-color: $color-5;
 		border-left: $size-0 solid $color-3;
 	}
-	
+
 	li:hover {
 		background-color: $color-5;
 	}

@@ -102,7 +102,7 @@ export default function IconMixer({ id }) {
 				</div>
 			</form>
 
-			<form className='margin_bottom_xxl'>
+			<form className='margin_bottom_xl'>
 				<h4 className='margin_bottom_m'><b>файл:</b> {id}{extention}</h4>
 
 				<div className={styles.size_radio_btn_container}>
@@ -123,7 +123,7 @@ export default function IconMixer({ id }) {
 				?
 				<IconResult svgData={svgData} size={size} extention={extention} id={id} />
 				:
-				<h4 className='margin_bottom_xl color_red'>{errorMassege}</h4>
+				<h4 className='margin_bottom_xxl color_red'>{errorMassege}</h4>
 			}
 
 		</div>

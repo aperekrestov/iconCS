@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getIconTags } from '@/app/utils/get-data'
 import styles from './TagList.module.scss'
 

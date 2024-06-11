@@ -74,7 +74,7 @@ export default function IconResult({svgData, size, extention, id}) {
 
 	return (
 		<>
-			<div className={styles.result + ' ' + 'margin_bottom_l'}>
+			<div className={styles.result + ' ' + 'margin_bottom_xxl'}>
 				<div className={styles.result__corners_container}>
 					<div className={styles.result__corner_top_left + ' ' + styles.result__corner}></div>
 					<div className={styles.result__corner_top_right + ' ' + styles.result__corner}></div>
@@ -88,7 +88,7 @@ export default function IconResult({svgData, size, extention, id}) {
 				</div>
 			</div>
 
-			<button className='margin_bottom_xxl' onClick={handleClick} >Загрузить</button>
+			<button className='margin_bottom_xl' onClick={handleClick} >Загрузить</button>
 		</>
 	)
 }
