@@ -6,13 +6,12 @@
 	flex-wrap: wrap;
 	flex-direction: column;
 	align-content: space-between;
-	// margin-left: -$size-1;
 
 	&__icon_container {
 		margin: $size-0 $size-1;
 		background-image: url(../../../public/img/pattern-alpha-light.svg);
 	}
-	
+
 	&__corners_container {
 		display: flex;
 		justify-content: space-between;

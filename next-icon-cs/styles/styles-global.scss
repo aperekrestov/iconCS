@@ -47,7 +47,7 @@ section {
 
 h1 {
 	font-size: $size-5;
-	font-weight: 300;
+	font-weight: 700;
 	box-sizing: border-box;
 	// padding-bottom: $size-2;
 }
@@ -159,14 +159,25 @@ button {
 .color_red {
 	color: $color-3;
 }
+.color_darck {
+	color: $color-6;
+}
 
 .font_bold {
 	font-weight: 700;
-	// font-weight: 600;
 }
-
+.font_semibold {
+	font-weight: 500;
+}
 .font_light {
 	font-weight: 300;
+}
+
+.bg_grey {
+	background-color: $color-5;
+}
+.bg_light {
+	background-color: $color-8;
 }
 
 .font_small {
@@ -230,10 +241,6 @@ button {
 .content_width_middle {
 	margin: 0 auto;
 	width: $breakpoint-m;
-}
-
-.bg_grey {
-	background-color: $color-5;
 }
 
 // .content_indent {
