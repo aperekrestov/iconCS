@@ -18,7 +18,12 @@ export default function GalleryPage() {
 		<section>
 			<div className='content_width_large'>
 				<h1>Галерея</h1>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cum dolorum explicabo laboriosam repudiandae dolor nulla nisi tenetur nesciunt nam eum, ipsa, aspernatur minima animi labore! Eligendi sint officia facilis.</p>
+				<p>
+					<span className='color_red'>CS</span>oft создает глобальный визуальный язык, который объединяет нас.
+					Язык, позволяющий быстро и легко общаться, независимо от того, кто вы и где находитесь.
+					Универсальный и доступный инструмент коммуникации в пользовательском интерфейсе,
+					пересекающих языковые и культурные границы.
+				</p>
 				{approvedIcons.length > 0 &&
 					<Gallery arrayData={approvedIcons} />
 				}

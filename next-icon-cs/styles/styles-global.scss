@@ -8,6 +8,16 @@
 	scrollbar-width: thin;
 }
 
+::selection {
+	background: $color-3;
+	color: $color-4;
+}
+
+::-moz-selection {
+	background: $color-3;
+	color: $color-4;
+}
+
 img::selection {
 	background: none;
 }
@@ -39,7 +49,7 @@ body {
 
 article,
 section {
-	background-color: $color-1;
+	background-color: $color-4;
 	flex-grow: 1;
 	padding-top: $size-6;
 	padding-bottom: $size-7;
@@ -56,13 +66,13 @@ h1 {
 h2 {
 	font-size: $size-4;
 	font-weight: 500;
-	color: $color-8;
 	margin-bottom: $spacing-l;
 	box-sizing: border-box;
 	word-wrap: break-word;
 	
 	span {
-		background-color: $color-3;
+		color: $color-4;
+		background-color: $color-6;
 
 	}
 }
@@ -167,6 +177,7 @@ button {
 .color_red {
 	color: $color-3;
 }
+
 .color_darck {
 	color: $color-6;
 }
@@ -174,9 +185,11 @@ button {
 .font_bold {
 	font-weight: 700;
 }
+
 .font_semibold {
 	font-weight: 500;
 }
+
 .font_light {
 	font-weight: 300;
 }
@@ -184,8 +197,22 @@ button {
 .bg_grey {
 	background-color: $color-5;
 }
+
 .bg_light {
 	background-color: $color-8;
+}
+
+.bg_page_img {
+	position: absolute;
+	width: 800px;
+	height: 800px;
+	background-repeat: no-repeat;
+	left: 0;
+	top: 0;
+	// top: $spacing-xxl;
+	pointer-events: none;
+	z-index: 1;
+	// background-color: #fff;
 }
 
 .font_small {
@@ -238,17 +265,22 @@ button {
 // }
 
 .content_width_large {
+	position: relative;
 	margin: 0 auto;
 	width: 100%;
 	max-width: $breakpoint-xxl;
 	padding-left: $spacing-xl;
 	padding-right: $spacing-xl;
 	box-sizing: border-box;
+	z-index: 2;
 }
 
 .content_width_middle {
+	position: relative;
 	margin: 0 auto;
 	width: $breakpoint-m;
+	box-sizing: border-box;
+	z-index: 2;
 }
 
 // .content_indent {
