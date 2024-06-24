@@ -28,8 +28,8 @@ export default function IconPage() {
 	}, [id])
 
 	return (
-		<section className={'bg_grey'}>
-			<div className={'content_width_middle'}>
+		<section className='bg_grey'>
+			<div className='content_width_middle'>
 				<LinkBack />
 				{isIdAvailable
 					?

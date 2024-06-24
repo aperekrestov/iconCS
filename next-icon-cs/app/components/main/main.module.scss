@@ -11,7 +11,7 @@
 }
 .header{
 	color: $color-1;
-	font-weight: 100;
+	// font-weight: 100;
 }
 .container {
 	display: flex;
@@ -23,7 +23,7 @@
 	&__search {
 		width: $size-11;
 		height: $size-6;
-		background-color: #fff;
+		background-color: $color-8;
 	}
 }
 

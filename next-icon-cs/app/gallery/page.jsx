@@ -16,7 +16,7 @@ export default function GalleryPage() {
 
 	return (
 		<section>
-			<div className={'content_width_large'}>
+			<div className='content_width_large'>
 				<h1>Галерея</h1>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cum dolorum explicabo laboriosam repudiandae dolor nulla nisi tenetur nesciunt nam eum, ipsa, aspernatur minima animi labore! Eligendi sint officia facilis.</p>
 				{approvedIcons.length > 0 &&

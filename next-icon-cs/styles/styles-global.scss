@@ -47,16 +47,24 @@ section {
 
 h1 {
 	font-size: $size-5;
-	font-weight: 700;
+	font-weight: 400;
+	// color: $color-6;
 	box-sizing: border-box;
-	// padding-bottom: $size-2;
+	margin-bottom: $spacing-l;
 }
 
 h2 {
 	font-size: $size-4;
-	// padding-bottom: $spacing-l;
+	font-weight: 500;
+	color: $color-8;
+	margin-bottom: $spacing-l;
 	box-sizing: border-box;
 	word-wrap: break-word;
+	
+	span {
+		background-color: $color-3;
+
+	}
 }
 
 h3 {

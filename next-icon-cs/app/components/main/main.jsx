@@ -5,7 +5,7 @@ export default function Main() {
 	return (
 		<section className={styles.wrapper}>
 			<div className={styles.container + ' ' + 'content_width_large'}>
-				<h1 className={styles.header + ' ' + 'margin_bottom_l'}>Визуальный язык <span className='color_red'>CS</span>oft</h1>
+				<h1 className={styles.header}>Визуальный язык <span className='color_red'>CS</span>oft</h1>
 				<div className={styles.container__search + ' ' + 'margin_bottom_xxl'}>
 					<SearchBar />
 				</div>
