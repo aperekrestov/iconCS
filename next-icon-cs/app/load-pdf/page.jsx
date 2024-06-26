@@ -10,7 +10,7 @@ export default function LoadPdf() {
 					Ниже представлен рабочий PDF файл, содержащий коллекцию старых иконок,
 					на основе которых был согласован и разработан новый сет значков
 					для пользовательских интерфейсов продуктов
-					группы копнаий <span className='color_red font_bold'>CS</span>oft
+					группы копнаий <span className='color_red font_bold'>CS</span>oft.
 				</p>
 				<form action="/csoft-icons-collection.pdf" target='_blank' method="get">
 					<button className='margin_bottom_xl button_darck'>Получить PDF</button>
