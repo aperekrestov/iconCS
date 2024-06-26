@@ -1,6 +1,6 @@
 import { Ubuntu } from "next/font/google"
 import Header from '@/app/components/header/header'
-// import Footer from '@/app/components/Footer/Footer'
+import Footer from '@/app/components/footer/footer'
 
 //? импортирнруем глобальные стили в корневой шаблон
 import stylesGlobal from '@/styles/styles-global.scss'
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
 				<div className={'wrapper_main'}>
 					<Header />
 					{children}
-					{/* <Footer/> */}
+					<Footer/>
 				</div>
 			</body>
 		</html>
