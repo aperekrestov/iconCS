@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import Logo from '@/app/components/logo/logo'
 import NavLinks from '@/app/components/nav-links/nav-links'
 import SearchBar from '@/app/components/search-bar/search-bar'
-import styles from './header.module.scss'
+import styles from './Header.module.scss'
 
 export default function Header() {
 	const pathname = usePathname()

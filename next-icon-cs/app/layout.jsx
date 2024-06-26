@@ -1,5 +1,5 @@
 import { Ubuntu } from "next/font/google"
-import Header from '@/app/components/header/header'
+import Header from '@/app/components/Header/Header'
 import Footer from '@/app/components/footer/Footer'
 
 //? импортирнруем глобальные стили в корневой шаблон
