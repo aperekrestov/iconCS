@@ -40,7 +40,7 @@ export default function SearchBar({ searchText = ''}) {
 
 		if (userQuery.current.value !== '') {
 			setCoincidence([])
-			router.replace(`/search?icons=${userQuery.current.value}`, { scroll: true })
+			// router.replace(`/search?icons=${userQuery.current.value}`, { scroll: true })
 		}
 	}
 

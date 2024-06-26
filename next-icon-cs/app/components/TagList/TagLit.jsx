@@ -22,9 +22,11 @@ export default function TagList({ id }) {
 					<div className={styles.tags_container}>
 						{itemTags.map((tag) => {
 							return (
-								<Link href={`/search?icons=${tag}`} key={tag} className={styles.tag}>
-									<h4>{tag.toLowerCase()}</h4>
-								</Link>
+								<>
+								</>
+								// <Link href={`/search?icons=${tag}`} key={tag} className={styles.tag}>
+								// 	<h4>{tag.toLowerCase()}</h4>
+								// </Link>
 							)
 						})}
 					</div>
