@@ -29,8 +29,8 @@ export default function IconPage() {
 	}, [id])
 
 	return (
-		<section className='bg_grey'>
-			<Suspense>
+		<Suspense>
+			<section className='bg_grey'>
 
 
 				<div className='content_width_middle'>
@@ -54,7 +54,7 @@ export default function IconPage() {
 					}
 
 				</div>
-			</Suspense>
-		</section>
+			</section>
+		</Suspense>
 	)
 }
