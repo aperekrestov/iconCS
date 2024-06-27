@@ -11,7 +11,7 @@ export default function Search() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			console.log(searchParams.get('icons'));
+			// console.log(searchParams.get('icons'));
 			setIconsFilteredData(await getIconsFilteredData(searchParams.get('icons')))
 		}
 		fetchData()

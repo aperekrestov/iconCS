@@ -1,4 +1,5 @@
 'use client'
+import { Suspense } from "react"
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { getIconsApprovedId } from '@/app/utils/get-data'
@@ -29,27 +30,31 @@ export default function IconPage() {
 
 	return (
 		<section className='bg_grey'>
-			<div className='content_width_middle'>
-				<LinkBack />
-				{isIdAvailable
-					?
-					<div className='flex_container'>
-						<div className='width_third'>
-							<IconInfo id={id} />
-						</div>
-						<div>
-							<IconMixer id={id}/>
-							<TagList id={id} />
-						</div>
-					</div>
-					:
-					<div>
-						<h3 className='margin_bottom_s'>ID <i>{id}</i></h3>
-						<h4 className='margin_bottom_xl'>Не существует</h4>
-					</div>
-				}
+			<Suspense>
 
-			</div>
+
+				<div className='content_width_middle'>
+					<LinkBack />
+					{isIdAvailable
+						?
+						<div className='flex_container'>
+							<div className='width_third'>
+								<IconInfo id={id} />
+							</div>
+							<div>
+								<IconMixer id={id} />
+								<TagList id={id} />
+							</div>
+						</div>
+						:
+						<div>
+							<h3 className='margin_bottom_s'>ID <i>{id}</i></h3>
+							<h4 className='margin_bottom_xl'>Не существует</h4>
+						</div>
+					}
+
+				</div>
+			</Suspense>
 		</section>
 	)
 }

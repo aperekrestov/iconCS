@@ -72,7 +72,7 @@ h2 {
 	margin-bottom: $spacing-l;
 	box-sizing: border-box;
 	word-wrap: break-word;
-	
+
 	span {
 		color: $color-4;
 		background-color: $color-6;
@@ -127,7 +127,7 @@ input:focus::placeholder {
 // // todo надо ли?
 //     -webkit-appearance: textfield;
 // }
-button{
+button {
 	font-size: 11px;
 	line-height: 11px;
 	letter-spacing: 1.4px;
@@ -147,6 +147,7 @@ button{
 		border: solid 1px $color-1;
 	}
 }
+
 .button_darck {
 	background-color: unset;
 	color: $color-9;
@@ -238,12 +239,14 @@ button{
 	z-index: 1;
 	// background-color: #fff;
 }
+
 .img_pdf {
 	width: 100%;
 	height: auto;
 	aspect-ratio: 16 / 9;
 	pointer-events: none;
 }
+
 .wrapper_preview_collection {
 	background-color: $color-4;
 }
@@ -333,19 +336,22 @@ button{
 .width_third {
 	min-width: 33%;
 }
-.banner_top{
+
+.banner_top {
 	// ? как у section и article
 	padding-top: $size-6;
 	// padding-bottom: $size-1;
 	color: $color-4;
 	text-align: center;
 }
+
 .banner_top_tail {
 	background-color: $color-4;
-	&__arrow{
+
+	&__arrow {
 		margin: 0 auto;
-		width: 0; 
-		height: 0; 
+		width: 0;
+		height: 0;
 		border-left: $size-2 solid transparent;
 		border-right: $size-2 solid transparent;
 		border-top: $size-2 solid $color-10;
