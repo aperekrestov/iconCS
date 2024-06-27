@@ -1,5 +1,5 @@
 // export const REPOSITORY_NAME = 'csoft-icons/'
-
+// export const HOST = ''
 export const HOST = 'http://localhost:3000/'
 export const FOLDER = './csoft-icons-collection/'
 

@@ -53,6 +53,9 @@ section {
 	// flex-grow: 1;
 	padding-top: $size-6;
 	padding-bottom: $size-7;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 }
 
 h1 {
@@ -317,6 +320,11 @@ button{
 // .content_indent {
 // 	padding-left: $spacing-xl;
 // 	padding-right: $spacing-xl;
+// }
+// .flex_grow {
+// 	display: flex;
+// 	flex-direction: column;
+// 	flex-grow: 1;
 // }
 .flex_container {
 	display: flex;

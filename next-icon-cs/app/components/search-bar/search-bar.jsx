@@ -40,7 +40,7 @@ export default function SearchBar({ searchText = ''}) {
 
 		if (userQuery.current.value !== '') {
 			setCoincidence([])
-			// router.replace(`/search?icons=${userQuery.current.value}`, { scroll: true })
+			router.replace(`/search?icons=${userQuery.current.value}`, { scroll: true })
 		}
 	}
 
@@ -53,13 +53,13 @@ export default function SearchBar({ searchText = ''}) {
 	}
 
 	function getOptions() {
-		let regex = new RegExp('^' + inputValue, 'gi')
-		//? задаем список подсказок из массива ТЭГОВ
-		let coincidencesFullArray = iconsUniqueTags.filter(item => { return item.match(regex) })
-		if (coincidencesFullArray.length === 0) {
-			coincidencesFullArray = iconsApprovedId.filter(item => { return item.match(regex) })
-		}
-		return coincidencesFullArray.slice(0, 5)
+		// let regex = new RegExp('^' + inputValue, 'gi')
+		// //? задаем список подсказок из массива ТЭГОВ
+		// let coincidencesFullArray = iconsUniqueTags.filter(item => { return item.match(regex) })
+		// if (coincidencesFullArray.length === 0) {
+		// 	coincidencesFullArray = iconsApprovedId.filter(item => { return item.match(regex) })
+		// }
+		// return coincidencesFullArray.slice(0, 5)
 	}
 
 	const searchKeyDown = (e) => {
@@ -119,7 +119,7 @@ export default function SearchBar({ searchText = ''}) {
 			<button className={styles.searchForm__btn} type='submit'></button>
 
 			<ul className={styles.searchOptions} ref={coincidenceList}>
-				{coincidence.map((item, index) => {
+				{/* {coincidence.map((item, index) => {
 					return (
 						<li
 							onClick={clickCoincidence}
@@ -132,7 +132,7 @@ export default function SearchBar({ searchText = ''}) {
 						</li>
 
 					)
-				})}
+				})} */}
 			</ul>
 
 

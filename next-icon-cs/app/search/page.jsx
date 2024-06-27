@@ -11,6 +11,7 @@ export default function Search() {
 
 	useEffect(() => {
 		const fetchData = async () => {
+			console.log(searchParams.get('icons'));
 			setIconsFilteredData(await getIconsFilteredData(searchParams.get('icons')))
 		}
 		fetchData()
@@ -19,8 +20,10 @@ export default function Search() {
 	return (
 		<section>
 			<div className={'content_width_large'}>
+				{/* <h3 className='margin_bottom_s'>По запросу <i>{searchParams.get('icons')}</i></h3> */}
+				{/* <h4 className='margin_bottom_xl'>Создан {dateModified}</h4> */}
 				<h3>{searchParams.get('icons')}</h3>
-				<p>Найдено файлов: <i>{iconsFilteredData.length}</i></p>
+				<h4>Найдено совпадений: <i>{iconsFilteredData.length}</i></h4>
 				{iconsFilteredData.length > 0 &&
 					<Gallery arrayData={iconsFilteredData} />
 				}
