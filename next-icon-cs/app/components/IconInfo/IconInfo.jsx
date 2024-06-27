@@ -32,7 +32,7 @@ export default function IconInfo({ id }) {
 			setDateModified(dateFormat(date, 'dd.mm.yyyy'))
 		}
 		fetch()
-	}, [])
+	}, [id])
 
 	return (
 		<div className={styles.container}>

@@ -12,7 +12,7 @@ export default function TagList({ id }) {
 			setItemTags(await getIconTags(id))
 		}
 		fetchTags()
-	}, [])
+	}, [id])
 
 	return (
 		<div>

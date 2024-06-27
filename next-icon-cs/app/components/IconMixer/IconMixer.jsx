@@ -63,7 +63,7 @@ export default function IconMixer({ id }) {
 			}
 		}
 		fetchSvgData()
-	}, [size])
+	}, [size, id])
 
 	return (
 		<div>
