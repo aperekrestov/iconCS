@@ -23,7 +23,7 @@ function MatchesSearchParam() {
 		}
 		fetch()
 	}, [s])
-	return <h4>Найдено совпадений: <i>{iconFilteredData.length}</i></h4>
+	return <h4>Число совпадений: <i>{iconFilteredData.length}</i></h4>
 }
 
 function GallerySearchParam() {
@@ -47,7 +47,10 @@ export default function Search() {
 				<Suspense>
 					<HeaderSearchParam />
 					<MatchesSearchParam />
+					<section>
+
 					<GallerySearchParam />
+					</section>
 				</Suspense>
 			</div>
 		</section>
