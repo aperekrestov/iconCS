@@ -1,10 +1,8 @@
 'use client'
 import { Suspense, useEffect, useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
-
+import { useSearchParams } from 'next/navigation'
 import { getIconsFilteredData } from '@/app/utils/get-data'
 import Gallery from '@/app/components/gallery/gallery'
-
 
 function HeaderSearchParam() {
 	const sp = useSearchParams()
