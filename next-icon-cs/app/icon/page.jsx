@@ -14,22 +14,81 @@ function IconInfoSearchParam() {
 	return <IconInfo id={s} />
 }
 
+function IconMixerSearchParam() {
+	const sp = useSearchParams()
+	const s = sp.get('id')
+	return <IconMixer id={s} />
+}
+
+function TagListSearchParam() {
+	const sp = useSearchParams()
+	const s = sp.get('id')
+	return <TagList id={s} />
+}
+
+function IsIdAvailableSearchParam() {
+	const sp = useSearchParams()
+	const s = sp.get('id')
+	const [isIdAvailable, setIsIdAvailable] = useState(true)
+	useEffect(() => {
+		const fetchIconsApproovedId = async () => {
+			checkId(await getIconsApprovedId(s))
+		}
+		const checkId = (arr) => {
+			if (arr.includes(s)) {
+				setIsIdAvailable(true)
+			} else {
+				setIsIdAvailable(false)
+			}
+		}
+		fetchIconsApproovedId()
+	}, [s])
+	console.log(isIdAvailable);
+
+	if (!isIdAvailable) {
+		return (
+			<>
+				<h3 className='margin_bottom_s'>ID <i>{s}</i></h3>
+				<h4 className='margin_bottom_xl'>Не существует</h4>
+			</>
+		)
+	} else {
+		return (
+			<div className='flex_container'>
+				<div className='width_third'>
+					<IconInfoSearchParam />
+				</div>
+				<div>
+					<IconMixerSearchParam />
+					<TagListSearchParam />
+				</div>
+			</div>
+		)
+	}
+	// return <p>{s}</p>
+	// return <TagList id={s} />
+}
+
 export default function IconPage() {
 	return (
 		<section className='bg_grey'>
 			<div className='content_width_middle'>
 				<LinkBack />
+
 				<Suspense>
-					<div className='flex_container'>
+					<IsIdAvailableSearchParam />
+
+					{/* <div className='flex_container'>
 						<div className='width_third'>
 							<IconInfoSearchParam />
 						</div>
 						<div>
-							{/* <IconMixer id={id} /> */}
-							{/* <TagList id={id} /> */}
+							<IconMixerSearchParam />
+							<TagListSearchParam />
 						</div>
-					</div>
+					</div> */}
 				</Suspense>
+
 			</div>
 		</section>
 	)
