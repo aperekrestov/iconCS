@@ -1,11 +1,12 @@
 'use client'
+
 import { useRouter } from 'next/navigation'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { getIconsApprovedId, getUniqueTags } from '@/app/utils/get-data'
+import { getData, getIconsApprovedId, getUniqueTags } from '@/app/utils/get-data'
 import styles from './search-bar.module.scss'
 
-export default function SearchBar({ searchText = ''}) {
+export default function SearchBar({ searchText = '' }) {
 	const [iconsApprovedId, setIconsApprovedId] = useState([])
 	const [iconsUniqueTags, setIconsUniqueTags] = useState([])
 	const [coincidence, setCoincidence] = useState([])
@@ -79,7 +80,7 @@ export default function SearchBar({ searchText = ''}) {
 	}
 
 	function optionPrewNext() {
-		if(coincidence.length > 0) {
+		if (coincidence.length > 0) {
 			coincidenceList.current.children[coincidenceTabIndex].focus()
 			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
 		}
@@ -87,8 +88,11 @@ export default function SearchBar({ searchText = ''}) {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			setIconsUniqueTags(await getUniqueTags())
-			setIconsApprovedId(await getIconsApprovedId())
+			// setIconsUniqueTags(await getUniqueTags())
+			// setIconsApprovedId(await getIconsApprovedId())
+			const data = await getData()
+			// console.log(router.locale)
+			
 		}
 
 		fetchData()
@@ -100,8 +104,8 @@ export default function SearchBar({ searchText = ''}) {
 
 	return (
 		<form
-			onChange={handleChange} 
-			onSubmit={handleSubmit} 
+			onChange={handleChange}
+			onSubmit={handleSubmit}
 			onBlur={handleFocuseout}
 			className={styles.searchForm}
 			autoComplete='off'

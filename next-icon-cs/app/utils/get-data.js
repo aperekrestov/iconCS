@@ -1,19 +1,24 @@
 import { HOST, FOLDER, SVG_EXTENSION, GENERAL_SIZE } from '@/app/utils/constants'
-
+const axios = require('axios');
 
 export async function getData() {
-	try {
-		const res = await fetch(`${HOST}csoft-icons-collection.json`)
-		if (!res.ok) {
-			console.error('Нет ответа. ', res.status)
-			return false
-		}
-		return res.json()
+	console.log('getData');
+	const res = await axios.get(`/csoft-icons-collection.json`)
+	console.log(res);
+	// const res = await fetch(`https://perekrestov.ru/csoft-icons-collection.json`)
+	// try {
+	// 	const res = await fetch(`https://perekrestov.ru/csoft-icons-collection.json`)
+	// 	// const res = await fetch(`${HOST}csoft-icons-collection.json`)
+	// 	if (!res.ok) {
+	// 		console.error('Нет ответа. ', res.status)
+	// 		return false
+	// 	}
+	// 	return res.json()
 
-	} catch (error) {
-		console.error('Ошибка передачи данных. ', res.status)
-		return false
-	}
+	// } catch (error) {
+	// 	console.error('Ошибка передачи данных. ', res.status)
+	// 	return false
+	// }
 }
 
 export async function getIconsApprovedData() {
