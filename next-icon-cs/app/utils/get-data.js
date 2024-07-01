@@ -3,9 +3,9 @@ const axios = require('axios');
 
 export async function getData() {
 	console.log('getData');
-	const res = await axios.get(`/csoft-icons-collection.json`)
+	// const res = await axios.get(`/csoft-icons-collection.json`)
+	const res = await fetch(`/csoft-icons-collection.json`)
 	console.log(res);
-	// const res = await fetch(`https://perekrestov.ru/csoft-icons-collection.json`)
 	// try {
 	// 	const res = await fetch(`https://perekrestov.ru/csoft-icons-collection.json`)
 	// 	// const res = await fetch(`${HOST}csoft-icons-collection.json`)
