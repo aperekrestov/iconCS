@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import IconResult from '@/app/components/IconResult/IconResult'
 import { getIconSvgUrl } from '@/app/utils/get-data'
 import {
@@ -119,6 +119,7 @@ export default function IconMixer({ id }) {
 
 			<h4 className='margin_bottom_m'>результат:</h4>
 
+			{/* todo более элегантный подход  */}
 			{svgData
 				?
 				<IconResult svgData={svgData} size={size} extention={extention} id={id} />

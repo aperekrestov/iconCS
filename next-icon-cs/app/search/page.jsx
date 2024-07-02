@@ -35,8 +35,8 @@ function GallerySearchParam() {
 		}
 		fetch()
 	}, [s])
-	return <Gallery arrayData={iconFilteredData}/>
-} 
+	return <Gallery arrayData={iconFilteredData} />
+}
 
 export default function Search() {
 	return (
@@ -46,37 +46,10 @@ export default function Search() {
 					<HeaderSearchParam />
 					<MatchesSearchParam />
 					<section>
-
-					<GallerySearchParam />
+						<GallerySearchParam />
 					</section>
 				</Suspense>
 			</div>
 		</section>
 	)
 }
-
-
-// export default function Search() {
-// 	const searchParams = useSearchParams()
-// 	const [iconsFilteredData, setIconsFilteredData] = useState([])
-
-// 	useEffect(() => {
-// 		const fetchData = async () => {
-// 			// console.log(searchParams.get('icons'));
-// 			setIconsFilteredData(await getIconsFilteredData(searchParams.get('icons')))
-// 		}
-// 		fetchData()
-// 	}, [searchParams])
-
-// 	return (
-// 			<section>
-// 				<div className={'content_width_large'}>
-// 					<h3>{searchParams.get('icons')}</h3>
-// 					<h4>Найдено совпадений: <i>{iconsFilteredData.length}</i></h4>
-// 					{iconsFilteredData.length > 0 &&
-// 						<Gallery arrayData={iconsFilteredData} />
-// 					}
-// 				</div>
-// 			</section> 
-// 	)
-// }

@@ -1,12 +1,11 @@
 'use client'
-
 import { useRouter } from 'next/navigation'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { getData, getIconsApprovedId, getUniqueTags } from '@/app/utils/get-data'
 import styles from './search-bar.module.scss'
 
-export default function SearchBar({ searchText = '' }) {
+export default function SearchBar() {
 	const [iconsApprovedId, setIconsApprovedId] = useState([])
 	const [iconsUniqueTags, setIconsUniqueTags] = useState([])
 	const [coincidence, setCoincidence] = useState([])
@@ -38,7 +37,6 @@ export default function SearchBar({ searchText = '' }) {
 	const goToUserQueryPage = () => {
 		// todo window.scrollTo(0, 0)
 		// todo проверка ПРОБЕЛА в запросе
-
 		if (userQuery.current.value !== '') {
 			setCoincidence([])
 			router.replace(`/search?icons=${userQuery.current.value}`, { scroll: true })
@@ -54,13 +52,13 @@ export default function SearchBar({ searchText = '' }) {
 	}
 
 	function getOptions() {
-		// let regex = new RegExp('^' + inputValue, 'gi')
-		// //? задаем список подсказок из массива ТЭГОВ
-		// let coincidencesFullArray = iconsUniqueTags.filter(item => { return item.match(regex) })
-		// if (coincidencesFullArray.length === 0) {
-		// 	coincidencesFullArray = iconsApprovedId.filter(item => { return item.match(regex) })
-		// }
-		// return coincidencesFullArray.slice(0, 5)
+		let regex = new RegExp('^' + inputValue, 'gi')
+		//? задаем список подсказок из массива ТЭГОВ
+		let coincidencesFullArray = iconsUniqueTags.filter(item => { return item.match(regex) })
+		if (coincidencesFullArray.length === 0) {
+			coincidencesFullArray = iconsApprovedId.filter(item => { return item.match(regex) })
+		}
+		return coincidencesFullArray.slice(0, 5)
 	}
 
 	const searchKeyDown = (e) => {
@@ -88,13 +86,12 @@ export default function SearchBar({ searchText = '' }) {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			// setIconsUniqueTags(await getUniqueTags())
-			// setIconsApprovedId(await getIconsApprovedId())
+			setIconsUniqueTags(await getUniqueTags())
+			setIconsApprovedId(await getIconsApprovedId())
 			const data = await getData()
 			// console.log(router.locale)
-			
-		}
 
+		}
 		fetchData()
 	}, [])
 
@@ -115,7 +112,7 @@ export default function SearchBar({ searchText = '' }) {
 				type='search'
 				name='search'
 				placeholder='Начать поиск'
-				defaultValue={searchText}
+				// defaultValue={searchText}
 				className={styles.searchForm__input}
 				ref={userQuery}
 				onKeyDown={searchKeyDown}
@@ -123,56 +120,21 @@ export default function SearchBar({ searchText = '' }) {
 			<button className={styles.searchForm__btn} type='submit'></button>
 
 			<ul className={styles.searchOptions} ref={coincidenceList}>
-				{/* {coincidence.map((item, index) => {
+				{coincidence.map((item, index) => {
 					return (
 						<li
 							onClick={clickCoincidence}
 							onKeyDown={searchKeyDown}
-							// tabIndex={coincidenceTabIndex}
-							tabIndex={index}
+							tabIndex={coincidenceTabIndex}
+							//! tabIndex={index} ругается при сборке
 							key={index}
 						>
 							{item}
 						</li>
 
 					)
-				})} */}
+				})}
 			</ul>
-
-
-
-			{/* <ul className={styles.searchOptions} ref={coincidenceList}>
-				{data.map((item, index) => {
-					return(
-
-						<li
-						// onClick={clickCoincidence}
-						onKeyDown={searchKeyDown}
-						key={item.id}
-						// tabIndex={index}
-						>
-						{item}
-					</li>
-						)
-				}
-				)}
-			</ul> */}
-
-
-			{/* <select
-				 onMouseDown={toggleClass}
-				className={styles.searchOptions}
-				id="icons"
-				name="icons"
-				size="5"
-				// defaultValue='saab'
-				ref={coincidenceList}
-			>
-				<option value="volvo" className={isActive ? styles.ttt : ''}>Volvo</option>
-				<option value="saab">Saab</option>
-				<option value="fiat">Fiat</option>
-				<option value="audi">Audi</option>
-			</select> */}
 		</form>
 	)
 }
