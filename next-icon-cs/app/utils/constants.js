@@ -1,6 +1,7 @@
 // export const REPOSITORY_NAME = 'csoft-icons/'
-export const HOST = 'https://perekrestov.ru/'
+// export const HOST = 'https://perekrestov.ru/'
 // export const HOST = 'http://localhost:3000/'
+export const JSON = '/csoft-icons-collection.json'
 export const FOLDER = './csoft-icons-collection/'
 
 export const ULTRA_SMALL = '8'

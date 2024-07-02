@@ -1,26 +1,21 @@
-import { HOST, FOLDER, SVG_EXTENSION, GENERAL_SIZE } from '@/app/utils/constants'
-const axios = require('axios');
+import { JSON, FOLDER, SVG_EXTENSION, GENERAL_SIZE } from '@/app/utils/constants'
+//! const axios = require('axios')
 
 export async function getData() {
-	// const res = await axios.get(`/csoft-icons-collection.json`)
-	// return res.data
-	// console.log(res.data)
-	const res = await fetch(`/csoft-icons-collection.json`)
-	return res.json()
+	//! const res = await axios.get(`/csoft-icons-collection.json`)
+	//! return res.data
+	try {
+		const res = await fetch(JSON)
+		if (!res.ok) {
+			console.error('Нет ответа. ', res.status)
+			return false
+		}
+		return res.json()
 
-	// try {
-	// 	const res = await fetch(`https://perekrestov.ru/csoft-icons-collection.json`)
-	// 	// const res = await fetch(`${HOST}csoft-icons-collection.json`)
-	// 	if (!res.ok) {
-	// 		console.error('Нет ответа. ', res.status)
-	// 		return false
-	// 	}
-	// 	return res.json()
-
-	// } catch (error) {
-	// 	console.error('Ошибка передачи данных. ', res.status)
-	// 	return false
-	// }
+	} catch (error) {
+		console.error('Ошибка передачи данных. ', res.status)
+		return false
+	}
 }
 
 export async function getIconsApprovedData() {
@@ -74,21 +69,6 @@ export async function getIconsFilteredData(userQuery) {
 	return arrAfterSearch
 }
 
-// export async function getIconsFilteredData(userQuery) {
-// 	console.log(userQuery);
-// 	const iconsApprovedData = await getIconsApprovedData()
-// 	let arrAfterSearch = iconsApprovedData.filter((item) => {
-// 		return item.tags.toLowerCase().includes(userQuery.toLowerCase())
-// 	})
-// 	if(arrAfterSearch.length === 0){
-// 		arrAfterSearch = iconsApprovedData.filter((item) => {
-// 			return item.id.includes(userQuery)
-// 		})
-// 	}
-// 	// todo убрать условие поиска по id и собирать совпадения, добавляя к основной выдаче
-// 	return arrAfterSearch
-// }
-
 export async function getIconTags(id) {
 	const iconsApprovedData = await getIconsApprovedData()
 	let item = iconsApprovedData.filter((i) => {
@@ -102,7 +82,6 @@ export const getIconImageUrl = id => FOLDER + GENERAL_SIZE + "x" + GENERAL_SIZE 
 
 export const getIconSvgUrl = (id, size) => FOLDER + size + "x" + size + "/" + id + SVG_EXTENSION
 
-// export const getIconTags = string => { return string.split(", ") }
 
 // export const getIconContent = (iconArray, id) => {
 // 	return iconArray.find(item => item.id === id)
