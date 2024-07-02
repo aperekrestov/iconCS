@@ -43,7 +43,6 @@ function IsIdAvailableSearchParam() {
 		}
 		fetchIconsApproovedId()
 	}, [s])
-	console.log(isIdAvailable);
 
 	if (!isIdAvailable) {
 		return (

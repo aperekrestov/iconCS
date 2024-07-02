@@ -2,10 +2,11 @@ import { HOST, FOLDER, SVG_EXTENSION, GENERAL_SIZE } from '@/app/utils/constants
 const axios = require('axios');
 
 export async function getData() {
-	const res = await axios.get(`/csoft-icons-collection.json`)
-	// const res = await fetch(`/csoft-icons-collection.json`)
-	console.log(res.data)
-	return res.data
+	// const res = await axios.get(`/csoft-icons-collection.json`)
+	// return res.data
+	// console.log(res.data)
+	const res = await fetch(`/csoft-icons-collection.json`)
+	return res.json()
 
 	// try {
 	// 	const res = await fetch(`https://perekrestov.ru/csoft-icons-collection.json`)

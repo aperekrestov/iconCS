@@ -36,15 +36,16 @@ export default function SearchBar() {
 
 	const goToUserQueryPage = () => {
 		// todo window.scrollTo(0, 0)
-		// todo проверка ПРОБЕЛА в запросе
 		if (userQuery.current.value !== '') {
 			setCoincidence([])
-			router.replace(`/search?icons=${userQuery.current.value}`, { scroll: true })
+			userQuery.current.value = userQuery.current.value.trim() //? удаляем пробелы вначале и вконце
+			userQuery.current.value = userQuery.current.value.replace(/ {1,}/g," ") //? удаляем бвойные пробелы
+			router.replace(`/search?icons=${userQuery.current.value.trim()}`, { scroll: true })
 		}
 	}
 
 	const handleChange = (e) => {
-		inputValue = e.target.value
+		inputValue = e.target.value.trim()
 		setCoincidence(getOptions)
 		if (inputValue === '') {
 			setCoincidence([])
@@ -89,8 +90,6 @@ export default function SearchBar() {
 			setIconsUniqueTags(await getUniqueTags())
 			setIconsApprovedId(await getIconsApprovedId())
 			const data = await getData()
-			// console.log(router.locale)
-
 		}
 		fetchData()
 	}, [])
@@ -112,7 +111,6 @@ export default function SearchBar() {
 				type='search'
 				name='search'
 				placeholder='Начать поиск'
-				// defaultValue={searchText}
 				className={styles.searchForm__input}
 				ref={userQuery}
 				onKeyDown={searchKeyDown}
@@ -126,7 +124,6 @@ export default function SearchBar() {
 							onClick={clickCoincidence}
 							onKeyDown={searchKeyDown}
 							tabIndex={coincidenceTabIndex}
-							//! tabIndex={index} ругается при сборке
 							key={index}
 						>
 							{item}
