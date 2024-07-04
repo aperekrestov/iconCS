@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import bgImg from '@/public/img/bg_page_legal.svg'
-import LinkBack from '@/app/components/LinkBack/LinkBack'
+import LinkBack from '@/app/components/link-back/link-back'
 
 export default function Legal() {
 	return (

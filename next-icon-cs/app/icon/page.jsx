@@ -3,10 +3,10 @@ import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { getIconsApprovedId } from '@/app/utils/get-data'
 
-import LinkBack from '@/app/components/LinkBack/LinkBack'
-import IconInfo from '@/app/components/IconInfo/IconInfo'
-import TagList from '@/app/components/TagList/TagLit'
-import IconMixer from '@/app/components/IconMixer/IconMixer'
+import LinkBack from '@/app/components/link-back/link-back'
+import IconInfo from '@/app/components/icon-info/icon-info'
+import TagList from '@/app/components/tag-list/tag-list'
+import IconMixer from '@/app/components/icon-mixer/icon-mixer'
 
 function IconInfoSearchParam() {
 	const sp = useSearchParams()

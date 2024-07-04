@@ -2,7 +2,7 @@
 import dateFormat, { } from 'dateformat'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import styles from './IconInfo.module.scss'
+import styles from './icon-info.module.scss'
 
 import { getIconImageUrl } from '@/app/utils/get-data'
 
@@ -39,6 +39,7 @@ export default function IconInfo({ id }) {
 			<h3 className='margin_bottom_s'>ID <i>{id}</i></h3>
 			<h4 className='margin_bottom_xl'>Создан {dateModified}</h4>
 			<Image
+				priority={true} 
 				src={getIconImageUrl(id)}
 				width={32}
 				height={32}

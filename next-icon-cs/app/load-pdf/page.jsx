@@ -25,6 +25,7 @@ export default function LoadPdf() {
 
 
 				<Image
+					priority='true'
 					src='/img/preview_collection/icons-a.svg'
 					width={1920}
 					height={1080}
@@ -32,6 +33,7 @@ export default function LoadPdf() {
 					className='img_pdf'
 				/>
 				<Image
+					priority='true'
 					src='/img/preview_collection/icons-b.svg'
 					width={1920}
 					height={1080}
@@ -39,6 +41,7 @@ export default function LoadPdf() {
 					className='img_pdf'
 				/>
 				<Image
+					priority='true'
 					src='/img/preview_collection/icons-c.svg'
 					width={1920}
 					height={1080}
@@ -46,6 +49,7 @@ export default function LoadPdf() {
 					className='img_pdf'
 				/>
 				<Image
+					priority='true'
 					src='/img/preview_collection/icons-d.svg'
 					width={1920}
 					height={1080}
@@ -53,6 +57,7 @@ export default function LoadPdf() {
 					className='img_pdf'
 				/>
 				<Image
+					priority='true'
 					src='/img/preview_collection/icons-e.svg'
 					width={1920}
 					height={1080}
@@ -60,6 +65,7 @@ export default function LoadPdf() {
 					className='img_pdf'
 				/>
 				<Image
+					priority='true'
 					src='/img/preview_collection/icons-f.svg'
 					width={1920}
 					height={1080}

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import bgImg from '@/public/img/bg_page_instruction.svg'
-import LinkBack from '@/app/components/LinkBack/LinkBack'
+import LinkBack from '@/app/components/link-back/link-back'
 
 export default function Instruction() {
 	return (
@@ -8,7 +8,6 @@ export default function Instruction() {
 			<div className='content_width_large'>
 				<Image
 					src={bgImg}
-					// src='@/public/img/bg_page_instruction.svg'
 					width={400}
 					height={337}
 					alt='Иконка страницы'
@@ -17,7 +16,6 @@ export default function Instruction() {
 				/>
 			</div>
 			<div className='content_width_middle'>
-				{/* <div className='margin_bottom_xl'></div> */}
 				<h1>Игтсрукции</h1>
 				<h2>
 					<span>

@@ -1,0 +1,53 @@
+@import '@/styles/variables.module.scss';
+
+.wrapper_absolute {
+	position: sticky;
+	top: calc(100vh - ($size-6 * 2));
+	z-index: 3;
+	width: 100%;
+	height: $size-6;
+	margin-top: -$size-6;
+	pointer-events: none;
+}
+.flex_container{
+	width: 100%;
+	position: sticky;
+	top: 300px;
+	height: inherit;
+	display: flex;
+	justify-content: flex-end;
+}
+.link_top {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	pointer-events: painted;
+	cursor: pointer;
+	width: $size-4;
+	padding: $size-1 0;
+	transition: $transition-regular;
+	opacity: 0;
+	pointer-events: none;
+	color: $color-7;
+}
+
+.link_top__icon {		
+	display: flex;
+	width: $size-2;
+	height: $size-2;
+	margin-bottom: $size-1;
+}
+.link_top__arrow {
+	background-image: url(../../../public/img/icon-0379-s.svg);
+	width: inherit;
+	height: inherit;
+	transition: $transition-fast;
+}
+.link_top:hover {
+	// background-color: $color-hover-1;
+
+	.link_top__arrow {
+		transform: scale(0.8, 1.1);
+		margin-top: -$size-1;
+	}
+}

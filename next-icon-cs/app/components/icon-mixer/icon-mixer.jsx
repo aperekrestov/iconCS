@@ -1,12 +1,12 @@
 import { useState, useEffect, Suspense } from 'react'
-import IconResult from '@/app/components/IconResult/IconResult'
+import IconResult from '@/app/components/icon-result/icon-result'
 import { getIconSvgUrl } from '@/app/utils/get-data'
 import {
 	GENERAL_EXTENSION, PNG_EXTENSION, SVG_EXTENSION,
 	GENERAL_SIZE, SMALL, MEDIUM, LARGE,
 	X2_LARGE, X3_LARGE, X4_LARGE, X5_LARGE
 } from '@/app/utils/constants'
-import styles from './IconMixer.module.scss'
+import styles from './icon-mixer.module.scss'
 
 export default function IconMixer({ id }) {
 	const [svgData, setSvgData] = useState(null)

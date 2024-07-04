@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import Link from "next/link"
-import styles from './LinkBack.module.scss'
+import styles from './link-back.module.scss'
 
 export default function LinkBack() {
 	const router = useRouter()

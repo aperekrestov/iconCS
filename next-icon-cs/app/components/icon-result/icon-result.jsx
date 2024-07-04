@@ -1,4 +1,4 @@
-import styles from './IconResult.module.scss'
+import styles from './icon-result.module.scss'
 import { PNG_EXTENSION, SVG_EXTENSION, GENERAL_SIZE } from '@/app/utils/constants'
 
 export default function IconResult({svgData, size, extention, id}) {
