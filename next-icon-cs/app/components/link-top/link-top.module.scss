@@ -2,33 +2,29 @@
 
 .wrapper_absolute {
 	position: sticky;
+	width: 100%;
+	// height: $size-6;
+	margin-top: -$size-6;
 	top: calc(100vh - ($size-6 * 2));
 	z-index: 3;
-	width: 100%;
-	height: $size-6;
-	margin-top: -$size-6;
 	pointer-events: none;
-}
-.flex_container{
-	width: 100%;
-	position: sticky;
-	top: 300px;
-	height: inherit;
 	display: flex;
 	justify-content: flex-end;
 }
+
 .link_top {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	pointer-events: painted;
+	pointer-events: none;
 	cursor: pointer;
 	width: $size-4;
+	margin-right: $spacing-l;
 	padding: $size-1 0;
 	transition: $transition-regular;
 	opacity: 0;
-	pointer-events: none;
-	color: $color-7;
+	// color: $color-7;
+	// background-color: aqua;
 }
 
 .link_top__icon {		

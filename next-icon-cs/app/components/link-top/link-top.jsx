@@ -10,20 +10,24 @@ export default function LinkTop() {
 	let isAlpha = false
 	gsap.registerPlugin(ScrollToPlugin)
 
-	const contaiberArrowAnimation = useRef()
+	const containerAnimation = useRef()
 	//? мы можем передать объект конфигурации в качестве первого параметра, чтобы упростить определение области действия
-	const { contextSafe } = useGSAP({ scope: contaiberArrowAnimation })
+	const { contextSafe } = useGSAP({ scope: containerAnimation })
 
 	const fadeIn = contextSafe(() => {
-		gsap.to('.good', { opacity: 1, onComplete: () => {
-			gsap.to('.good',{pointerEvents: 'painted'})
-		}})
+		gsap.to('.good', {
+			opacity: 1, onComplete: () => {
+				gsap.to('.good', { pointerEvents: 'painted' })
+			}
+		})
 	})
 
 	const fadeOut = contextSafe(() => {
-		gsap.to('.good', { opacity: 0, onComplete: () => {
-			gsap.to('.good',{pointerEvents: 'none'})
-		}})
+		gsap.to('.good', {
+			opacity: 0, onComplete: () => {
+				gsap.to('.good', { pointerEvents: 'none' })
+			}
+		})
 	})
 
 	function scrollHandler(e) {
@@ -46,7 +50,7 @@ export default function LinkTop() {
 	}
 
 	function goTop() {
-		if(window) {
+		if (window) {
 			gsap.to(window, { duration: 2, scrollTo: { y: 0, x: 0 }, ease: 'power2.inOut' })
 		}
 	}
@@ -59,18 +63,14 @@ export default function LinkTop() {
 	}, [])
 
 	return (
-		<div className={styles.wrapper_absolute}>
-			<div className='content_width_large'>
-				<div ref={contaiberArrowAnimation} className={styles.flex_container}>
-					<div className={'good' + ' ' + styles.link_top} onClick={goTop}>
-						<div className={styles.link_top__icon}>
-							<span className={styles.link_top__arrow}></span>
-						</div>
-						<h4 className={styles.progress_value}>
-							{percentage}
-						</h4>
-					</div>
+		<div ref={containerAnimation} className={styles.wrapper_absolute}>
+			<div className={'good' + ' ' + styles.link_top} onClick={goTop}>
+				<div className={styles.link_top__icon}>
+					<span className={styles.link_top__arrow}></span>
 				</div>
+				<h4 className={styles.progress_value}>
+					{percentage}
+				</h4>
 			</div>
 		</div>
 	)
