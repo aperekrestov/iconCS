@@ -7,47 +7,52 @@ import styles from './link-top.module.scss'
 
 export default function LinkTop() {
 	const [percentage, setPercentage] = useState(0)
-	let isAlpha = false
+	// let isAlpha = false
 	gsap.registerPlugin(ScrollToPlugin)
 
-	const containerAnimation = useRef()
-	//? мы можем передать объект конфигурации в качестве первого параметра, чтобы упростить определение области действия
-	const { contextSafe } = useGSAP({ scope: containerAnimation })
+	// const containerAnimation = useRef()
+	// //? мы можем передать объект конфигурации в качестве первого параметра, чтобы упростить определение области действия
+	// const { contextSafe } = useGSAP({ scope: containerAnimation })
 
-	const fadeIn = contextSafe(() => {
-		gsap.to('.good', {
-			opacity: 1, onComplete: () => {
-				gsap.to('.good', { pointerEvents: 'painted' })
-			}
-		})
-	})
+	// const fadeIn = contextSafe(() => {
+	// 	gsap.to('.good', {
+	// 		opacity: 1, onComplete: () => {
+	// 			gsap.to('.good', { pointerEvents: 'painted' })
+	// 		}
+	// 	})
+	// })
 
-	const fadeOut = contextSafe(() => {
-		gsap.to('.good', {
-			opacity: 0, onComplete: () => {
-				gsap.to('.good', { pointerEvents: 'none' })
-			}
-		})
-	})
+	// const fadeOut = contextSafe(() => {
+	// 	gsap.to('.good', {
+	// 		opacity: 0, onComplete: () => {
+	// 			gsap.to('.good', { pointerEvents: 'none' })
+	// 		}
+	// 	})
+	// })
 
-	function scrollHandler(e) {
-		if (e.target.documentElement.scrollTop > 300 && !isAlpha) {
-			isAlpha = true
-			fadeIn()
-		}
-		if (e.target.documentElement.scrollTop < 300 && isAlpha) {
-			isAlpha = false
-			fadeOut()
-		}
+	// function scrollHandler(e) {
+	// 	if (e.target.documentElement.scrollTop > 300 && !isAlpha) {
+	// 		isAlpha = true
+	// 		fadeIn()
+	// 	}
+	// 	if (e.target.documentElement.scrollTop < 300 && isAlpha) {
+	// 		isAlpha = false
+	// 		fadeOut()
+	// 	}
 
-		let h = document.documentElement,
-			b = document.body,
-			st = 'scrollTop',
-			sh = 'scrollHeight'
-		let percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100
-
-		setPercentage(Math.round(percent) + '%')
-	}
+	// 	let h = document.documentElement,
+	// 		b = document.body,
+	// 		st = 'scrollTop',
+	// 		sh = 'scrollHeight'
+	// 	let percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100
+	// 	setPercentage(Math.round(percent) + '%')
+	// 	// if(percent === NaN ){
+	// 	// 	console.log('nnnnn');
+	// 	// 	setPercentage(0 + '%')
+	// 	// }else{
+	// 	// 	setPercentage(Math.round(percent) + '%')
+	// 	// }
+	// }
 
 	function goTop() {
 		if (window) {
@@ -55,12 +60,68 @@ export default function LinkTop() {
 		}
 	}
 
+
+
+	const containerAnimation = useRef()
+	const { contextSafe } = useGSAP({ scope: containerAnimation })
+
 	useEffect(() => {
+	//? мы можем передать объект конфигурации в качестве первого параметра, чтобы упростить определение области действия
+		const fadeIn = contextSafe(() => {
+			gsap.to('.good', {
+				opacity: 1, onComplete: () => {
+					gsap.to('.good', { pointerEvents: 'painted' })
+				}
+			})
+		})
+	
+		const fadeOut = contextSafe(() => {
+			gsap.to('.good', {
+				opacity: 0, onComplete: () => {
+					gsap.to('.good', { pointerEvents: 'none' })
+				}
+			})
+		})
+		let isAlpha = false
+		function scrollHandler(e) {
+			if (e.target.documentElement.scrollTop > 300 && !isAlpha) {
+				isAlpha = true
+				fadeIn()
+			}
+			if (e.target.documentElement.scrollTop < 300 && isAlpha) {
+				isAlpha = false
+				fadeOut()
+			}
+
+			let h = document.documentElement,
+				b = document.body,
+				st = 'scrollTop',
+				sh = 'scrollHeight'
+			let percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100
+			setPercentage(Math.round(percent) + '%')
+			// if(percent === NaN ){
+			// 	console.log('nnnnn');
+			// 	setPercentage(0 + '%')
+			// }else{
+			// 	setPercentage(Math.round(percent) + '%')
+			// }
+		}
+		console.log('use effect link top');
 		window.addEventListener('scroll', scrollHandler)
 		return function () {
 			document.removeEventListener('scroll', scrollHandler)
 		}
-	}, [])
+	}, [contextSafe]);
+
+
+	// useEffect(() => {
+	// 	// setPercentage(0 + '%')
+	// 	console.log('uf');
+	// 	window.addEventListener('scroll', scrollHandler)
+	// 	return function () {
+	// 		document.removeEventListener('scroll', scrollHandler)
+	// 	}
+	// }, [])
 
 	return (
 		<div ref={containerAnimation} className={styles.wrapper_absolute}>

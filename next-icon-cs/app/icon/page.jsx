@@ -30,7 +30,9 @@ function IsIdAvailableSearchParam() {
 	const sp = useSearchParams()
 	const s = sp.get('id')
 	const [isIdAvailable, setIsIdAvailable] = useState(true)
+
 	useEffect(() => {
+		console.log('use effect icon page');
 		const fetchIconsApproovedId = async () => {
 			checkId(await getIconsApprovedId(s))
 		}
