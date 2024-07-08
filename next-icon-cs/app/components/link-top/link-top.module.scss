@@ -3,7 +3,6 @@
 .wrapper_absolute {
 	position: sticky;
 	width: 100%;
-	// height: $size-6;
 	margin-top: -$size-6;
 	top: calc(100vh - ($size-6 * 2));
 	z-index: 3;
@@ -23,8 +22,6 @@
 	padding: $size-1 0;
 	transition: $transition-regular;
 	opacity: 0;
-	// color: $color-7;
-	// background-color: aqua;
 }
 
 .link_top__icon {		
@@ -40,10 +37,15 @@
 	transition: $transition-fast;
 }
 .link_top:hover {
-	// background-color: $color-hover-1;
-
 	.link_top__arrow {
 		transform: scale(0.8, 1.1);
 		margin-top: -$size-1;
+	}
+}
+
+//! Мобилки
+@media (max-width: 700px) {
+	.link_top {
+		margin-right: $spacing-s;
 	}
 }
