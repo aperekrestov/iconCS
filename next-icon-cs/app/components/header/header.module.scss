@@ -29,8 +29,33 @@
 }
 
 .center_part {
-	max-width: $breakpoint-s;
 	width: 100%;
+	max-width: $breakpoint-m;
 	height: $size-5;
+	padding: 0 $spacing-xl;
+	box-sizing: border-box;
 	// background-color: gray;
+}
+
+//! Мобилки
+@media (max-width: 700px) {
+
+	.header_section__container {
+		flex-wrap: wrap;
+	}
+
+	.left_side {
+		order: 1;
+		width: $size-7;
+	}
+
+	.right_side {
+		order: 2;
+	}
+
+	.center_part {
+		order: 3;
+		padding: 0;
+		height: $size-4;
+	}
 }
