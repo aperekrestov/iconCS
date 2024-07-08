@@ -9,10 +9,11 @@
 	background-color: $color-10;
 	text-align: center;
 }
-.header{
+
+.header {
 	color: $color-1;
-	// font-weight: 100;
 }
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -30,6 +31,7 @@
 .banner {
 	width: inherit;
 	padding-bottom: $size-6;
+
 	&__line {
 		display: flex;
 		justify-content: space-between;
@@ -97,3 +99,10 @@
 .icon12 {
 	background-image: url(../../../public/img/banner/0187-m.svg);
 }
+
+
+//! Планшеты и маленькие десктопы
+@media (min-width: 701px) and (max-width: 1120px) {}
+
+//! Мобилки
+@media (max-width: 700px) {}
