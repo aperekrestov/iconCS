@@ -398,8 +398,7 @@ button {
 //! Мобилки
 @media (max-width: 700px) {
 	.bg_page_img {
-		width: 300px;
-		height: 300px;
+		display: none;
 	}
 	.content_width_large {
 		padding-left: $spacing-m;

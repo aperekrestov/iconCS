@@ -10,7 +10,7 @@ export default function Main() {
 					<SearchBar />
 				</div>
 				<div className={styles.banner}>
-					<div className={styles.banner__line + ' ' + styles.pd_right + ' ' + 'margin_bottom_xxxl'}>
+					<div className={styles.banner__line_1}>
 						<div className={styles.banner__icon + ' ' + styles.icon1}></div>
 						<div className={styles.banner__icon + ' ' + styles.icon2}></div>
 						<div className={styles.banner__icon + ' ' + styles.icon3}></div>
@@ -18,7 +18,7 @@ export default function Main() {
 						<div className={styles.banner__icon + ' ' + styles.icon5}></div>
 						<div className={styles.banner__icon + ' ' + styles.icon6}></div>
 					</div>
-					<div className={styles.banner__line + ' ' + styles.pd_left}>
+					<div className={styles.banner__line_2}>
 						<div className={styles.banner__icon + ' ' + styles.icon7}></div>
 						<div className={styles.banner__icon + ' ' + styles.icon8}></div>
 						<div className={styles.banner__icon + ' ' + styles.icon9}></div>

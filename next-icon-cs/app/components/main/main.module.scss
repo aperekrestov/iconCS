@@ -1,9 +1,6 @@
 @import '@/styles/variables.module.scss';
 
 .wrapper {
-	// display: flex;
-	// flex-direction: column;
-	// flex-grow: 1;
 	justify-content: center;
 	width: 100%;
 	background-color: $color-10;
@@ -19,10 +16,10 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	// height: 60vh;
 
 	&__search {
-		width: $size-11;
+		width: 100%;
+		max-width: $size-11;
 		height: $size-6;
 		background-color: $color-8;
 	}
@@ -31,24 +28,27 @@
 .banner {
 	width: inherit;
 	padding-bottom: $size-6;
+	box-sizing: border-box;
+	// background-color: bisque;
 
-	&__line {
+	&__line_1 {
 		display: flex;
 		justify-content: space-between;
+		padding-left: $size-7;
+		padding-bottom: $spacing-xxxl;
+	}
+
+	&__line_2 {
+		display: flex;
+		justify-content: space-between;
+		padding-right: $size-7;
 	}
 
 	&__icon {
-		width: 64px;
-		height: 64px;
+		width: $size-6;
+		height: $size-6;
+		background-size: cover;
 	}
-}
-
-.pd_left {
-	padding-left: $size-7;
-}
-
-.pd_right {
-	padding-right: $size-7;
 }
 
 .icon1 {
@@ -102,7 +102,40 @@
 
 
 //! Планшеты и маленькие десктопы
-@media (min-width: 701px) and (max-width: 1120px) {}
+@media (min-width: 701px) and (max-width: 1120px) {
+	.banner {
+		padding-bottom: $size-4;
+
+		&__line_1 {
+			padding-left: $size-6;
+			padding-bottom: $spacing-xxl;
+		}
+
+		&__line_2 {
+			padding-right: $size-6;
+		}
+	}
+
+}
 
 //! Мобилки
-@media (max-width: 700px) {}
+@media (max-width: 700px) {
+	.banner {
+		padding-bottom: $size-3;
+
+		&__line_1 {
+			padding-left: $size-4;
+			padding-bottom: $spacing-xxl;
+		}
+
+		&__line_2 {
+			padding-right: $size-4;
+		}
+	}
+
+	.banner__icon {
+		width: $size-4;
+		height: $size-4;
+	}
+
+}
