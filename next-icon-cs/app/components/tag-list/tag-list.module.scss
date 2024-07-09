@@ -1,5 +1,10 @@
 @import '@/styles/variables.module.scss';
 
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
 .tags_container {
 	display: flex;
 	flex-wrap: wrap;
@@ -21,4 +26,15 @@
 
 .tag:hover{
 	background-color: $color-hover-1;
+}
+
+//! Мобилки
+@media (max-width: 700px) {
+	.container {
+		text-align: center;
+		align-items: center;
+	}
+	.tags_container {
+		justify-content: center;
+	}
 }

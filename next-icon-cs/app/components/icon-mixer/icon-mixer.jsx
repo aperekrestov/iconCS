@@ -66,7 +66,7 @@ export default function IconMixer({ id }) {
 	}, [size, id])
 
 	return (
-		<div>
+		<div className={styles.container}>
 			<form className='margin_bottom_xl'>
 				<h4 className='margin_bottom_m'><b>РАЗМЕР:</b> {size}*{size}</h4>
 

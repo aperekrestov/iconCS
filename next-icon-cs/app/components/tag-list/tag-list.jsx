@@ -15,7 +15,7 @@ export default function TagList({ id }) {
 	}, [id])
 
 	return (
-		<div>
+		<div className={styles.container}>
 			{itemTags.length > 0 &&
 				<>
 					<h4 className='margin_bottom_m'><b>теги:</b> {itemTags.length}</h4>

@@ -2,11 +2,11 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { getIconsApprovedId } from '@/app/utils/get-data'
-
 import LinkBack from '@/app/components/link-back/link-back'
 import IconInfo from '@/app/components/icon-info/icon-info'
 import TagList from '@/app/components/tag-list/tag-list'
 import IconMixer from '@/app/components/icon-mixer/icon-mixer'
+import styles from './icon.module.scss'
 
 function IconInfoSearchParam() {
 	const sp = useSearchParams()
@@ -32,7 +32,6 @@ function IsIdAvailableSearchParam() {
 	const [isIdAvailable, setIsIdAvailable] = useState(true)
 
 	useEffect(() => {
-		console.log('use effect icon page');
 		const fetchIconsApproovedId = async () => {
 			checkId(await getIconsApprovedId(s))
 		}
@@ -55,11 +54,11 @@ function IsIdAvailableSearchParam() {
 		)
 	} else {
 		return (
-			<div className='flex_container'>
-				<div className='width_third'>
+			<div className={styles.flex_container}>
+				<div className={styles.width_third}>
 					<IconInfoSearchParam />
 				</div>
-				<div>
+				<div className={styles.container_mixer}>
 					<IconMixerSearchParam />
 					<TagListSearchParam />
 				</div>
@@ -71,7 +70,7 @@ function IsIdAvailableSearchParam() {
 export default function IconPage() {
 	return (
 		<section className='bg_grey'>
-			<div className='content_width_middle'>
+			<div className={styles.wrapper + ' ' + 'content_width_middle'}>
 				<LinkBack />
 
 				<Suspense>

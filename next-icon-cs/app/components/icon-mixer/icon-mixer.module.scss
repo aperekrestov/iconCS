@@ -1,5 +1,10 @@
 @import '@/styles/variables.module.scss';
 
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
 .size_radio_btn_container {
 	display: inline-flex;
 	align-items: center;
@@ -35,4 +40,16 @@
 
 .size_radio_btn label:hover {
 	background-color: $color-hover-2;
+}
+
+
+//! Мобилки
+@media (max-width: 700px) {
+	.container {
+		text-align: center;
+		align-items: center;
+	}
+	.size_radio_btn label {
+		padding: 0 $size-1;
+	}
 }
