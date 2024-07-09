@@ -2,7 +2,7 @@
 
 .gallery_wrapper {
 	display: grid;
-	// ! необходимо соблюдать равным контейнеру иуонки
+	//! равный размеру контейнера иконки
 	grid-template-columns: repeat(auto-fill, $size-9);
 	grid-gap: $size-3;
 	justify-content: space-between;
@@ -16,12 +16,45 @@
 	width: $size-9;
 	height: $size-9;
 	background-color: $color-5;
-	padding-top: $size-5;
+	// padding-top: $size-5;
 	box-sizing: border-box;
 
 	&__image {
 		width: $size-8;
 		height: $size-8;
 	}
+}
 
+//! Планшеты и маленькие десктопы
+@media (min-width: 701px) and (max-width: 1120px) {
+	.gallery_wrapper {
+		grid-template-columns: repeat(auto-fill, calc($size-9 - $size-5));
+	}
+	
+	.icon_container {
+		width: calc($size-9 - $size-5);
+		height: calc($size-9 - $size-5);
+	
+		&__image {
+			width: $size-7;
+			height: $size-7;
+		}
+	}
+}
+
+//! Мобилки
+@media (max-width: 700px) {
+	.gallery_wrapper {
+		grid-template-columns: repeat(auto-fill, $size-8);
+	}
+	
+	.icon_container {
+		width: $size-8;
+		height: $size-8;
+	
+		&__image {
+			width: $size-6;
+			height: $size-6;
+		}
+	}
 }
