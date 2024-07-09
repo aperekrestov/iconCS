@@ -159,12 +159,13 @@ button {
 	border: solid 1px $color-10;
 	background-color: $color-5;
 	transition: $transition-fast;
+	color: $color-10;
 
-	&:hover {
-		color: $color-1;
-		background-color: $color-3;
-		border: solid 1px $color-1;
-	}
+	// &:hover {
+	// 	color: $color-1;
+	// 	background-color: $color-3;
+	// 	border: solid 1px $color-1;
+	// }
 }
 
 .button_darck {
@@ -173,11 +174,11 @@ button {
 	font-weight: 400;
 	border: solid 1px $color-7;
 
-	&:hover {
-		color: $color-1;
-		background-color: $color-3;
-		border: solid 1px $color-6;
-	}
+	// &:hover {
+	// 	color: $color-1;
+	// 	background-color: $color-3;
+	// 	border: solid 1px $color-6;
+	// }
 }
 
 .color_red {
@@ -338,6 +339,20 @@ button {
 		transition: $transition-regular;
 		pointer-events: none;
 		opacity: 0;
+	}
+	button {
+		&:hover {
+			color: $color-1;
+			background-color: $color-3;
+			border: solid 1px $color-1;
+		}
+	}
+	.button_darck {
+		&:hover {
+			color: $color-1;
+			background-color: $color-3;
+			border: solid 1px $color-6;
+		}
 	}
 }
 
