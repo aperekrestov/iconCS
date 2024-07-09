@@ -1,6 +1,7 @@
 @import '@/styles/variables.module.scss';
 
 .wrapper {
+	box-sizing: border-box;
 	justify-content: center;
 	width: 100%;
 	background-color: $color-10;
@@ -16,7 +17,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-
+	
 	&__search {
 		width: 100%;
 		max-width: $size-11;
@@ -29,7 +30,6 @@
 	width: inherit;
 	padding-bottom: $size-6;
 	box-sizing: border-box;
-	// background-color: bisque;
 
 	&__line_1 {
 		display: flex;
@@ -120,22 +120,29 @@
 
 //! Мобилки
 @media (max-width: 700px) {
+	// .header {
+	// 	font-size: $size-4;
+	// }
+	.container__search {
+		height: $size-5;
+	}
 	.banner {
 		padding-bottom: $size-3;
 
 		&__line_1 {
-			padding-left: $size-4;
-			padding-bottom: $spacing-xxl;
+			padding-left: $size-3;
+			padding-bottom: $spacing-xl;
 		}
 
 		&__line_2 {
-			padding-right: $size-4;
+			padding-right: $size-3;
+		}
+
+		&__icon {
+			width: $size-4;
+			height: $size-4;
 		}
 	}
 
-	.banner__icon {
-		width: $size-4;
-		height: $size-4;
-	}
 
 }
